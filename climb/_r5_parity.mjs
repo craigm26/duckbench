@@ -18,7 +18,7 @@
 // includes the round-4 event and handoff files that rig3_pre_r4 cannot replay
 // and is therefore held only against rig3_pre_r5.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r5_parity.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r5_parity.mjs
 import fs from 'node:fs';
 import { scoreSaved as NEW } from '../climb/rig3.mjs';
 import { scoreSaved as PRE5 } from '../climb/rig3_pre_r5.mjs';

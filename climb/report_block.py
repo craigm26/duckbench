@@ -2,7 +2,7 @@
 """Render climb/search_block-results.json as the round-2 family-D table.
 Reads only the results file; runs no physics."""
 import json, sys
-R = json.load(open('/home/craigm26/projects/duck-sounds/climb/search_block-results.json'))
+R = json.load(open('/home/craigm26/projects/duckbench/climb/search_block-results.json'))
 
 print("PLANT:", R['plant'], "| POLICY:", R['policy'], "| CRITERION:", R['criterion'])
 print("elapsed_s:", R.get('elapsed_s'))

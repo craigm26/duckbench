@@ -18,7 +18,7 @@
 //
 // Seeded from the published 120 mm best plus jittered restarts around it.
 // mulberry32, seed 16840 (the family's seed base 16838 + 2, after the two arms).
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/family_c2.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/family_c2.mjs
 import fs from 'node:fs';
 import { scoreCell, scoreRobust, saveIntent, CLEAR_BONUS } from '../climb/robust.mjs';
 import { intentOf, jitter, cross, clampGene, mulberry32, ORDERS } from '../climb/family_c.mjs';

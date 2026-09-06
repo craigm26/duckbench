@@ -41,7 +41,7 @@
 //   F  the winner re-scored on the full 14-cell extended grid.
 //
 // Seed base 4000, mulberry32.
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/famA_r4.mjs [searchSeconds]
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/famA_r4.mjs [searchSeconds]
 import fs from 'node:fs';
 import {
   scoreRobust, scoreCell, intentHashOfFile, checkBounds, saveIntent,

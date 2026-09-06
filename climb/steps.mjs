@@ -10,7 +10,7 @@
 // site/intent-specs.js calls non-optional, the same `pin the step joints every
 // tick` rule from site/stairs.js, and the same strict "on the step" test.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/steps.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/steps.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

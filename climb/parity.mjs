@@ -1,6 +1,6 @@
 // Proof that climb/rig.mjs's run() is the same episode as sim/climb_lib.mjs's
 // attempt(): same track, same opts, same rise -> byte-identical terminal state.
-// cd ~/projects/duck-sounds/sim && node ../climb/parity.mjs
+// cd ~/projects/duckbench/sim && node ../climb/parity.mjs
 import { replay } from '../sim/climb_lib.mjs';
 import { run, HOME } from './rig.mjs';
 const a = HOME.slice(); a[5]=-1.3; a[6]=0.7; a[7]=1.4;

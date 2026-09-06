@@ -26,7 +26,7 @@
 // This passing is what licenses the sentence "this is the audit's criterion and
 // grid, scored on this bench's plant".
 //
-//   cd ~/projects/duck-sounds/sim && node climb_parity.mjs
+//   cd ~/projects/duckbench/sim && node climb_parity.mjs
 import fs from 'node:fs';
 import { nodeBench } from './duckbench-node.mjs';
 import { scoreRobust } from '../climb/robust.mjs';

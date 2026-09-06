@@ -36,7 +36,7 @@
 //
 // Contacts via mj_geomDistance only — data.contact.get(i) leaks the WASM heap.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/vault.mjs <phase>
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/vault.mjs <phase>
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

@@ -9,7 +9,7 @@
 //     the head over an edge at rise h moves the CoM past the riser
 //  4. how high/far the beak reaches, i.e. the tallest edge the head can hook
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/wholebody-physics.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/wholebody-physics.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 import { makeLoop } from '../site/duckloop.mjs';

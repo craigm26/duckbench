@@ -14,7 +14,7 @@ about what happened. So this is a thin client: it can point at any bench through
 ## Add it
 
 ```
-claude mcp add duckbench -- node /home/craigm26/projects/duck-sounds/tools/duckbench-mcp.mjs
+claude mcp add duckbench -- node /home/craigm26/projects/duckbench/tools/duckbench-mcp.mjs
 ```
 
 Pointing it somewhere else — the desktop bench, or a bench with a token:
@@ -23,7 +23,7 @@ Pointing it somewhere else — the desktop bench, or a bench with a token:
 claude mcp add duckbench \
   -e DUCKBENCH_URL=http://100.95.79.116:8770 \
   -e DUCKBENCH_TOKEN=the-same-string-the-bench-started-with \
-  -- node /home/craigm26/projects/duck-sounds/tools/duckbench-mcp.mjs
+  -- node /home/craigm26/projects/duckbench/tools/duckbench-mcp.mjs
 ```
 
 Defaults to `http://127.0.0.1:8770`. On this Pi the bench runs as a systemd user

@@ -10,7 +10,7 @@
 // same +0.8 s tail, same 50-tick hold, same criterion at line 150) and adds a
 // recorder. Any divergence from climb_lib is a bug in this file.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/<script>.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/<script>.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

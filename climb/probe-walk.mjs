@@ -1,8 +1,8 @@
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';
-import { makeLoop } from '/home/craigm26/projects/duck-sounds/site/duckloop.mjs';
-import { findStairJoints, clearStairs } from '/home/craigm26/projects/duck-sounds/site/stairs.js';
+import { makeLoop } from '/home/craigm26/projects/duckbench/site/duckloop.mjs';
+import { findStairJoints, clearStairs } from '/home/craigm26/projects/duckbench/site/stairs.js';
 const C = JSON.parse(fs.readFileSync('duckkit-constants.json','utf8'));
 const { HOME, LO, HI, buildObs, projectedGravity, command, gaitTargets, findDuckJoints } = makeLoop(C);
 const mj = await load();

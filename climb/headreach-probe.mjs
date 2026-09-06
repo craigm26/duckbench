@@ -9,7 +9,7 @@
 // dynamic version: reach the head out and hold it, do nothing else, and print
 // where the criterion says the trunk ended up.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/headreach-probe.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/headreach-probe.mjs
 import fs from 'node:fs';
 import { replay } from '../sim/climb_lib.mjs';
 import { makeLoop } from '../site/duckloop.mjs';

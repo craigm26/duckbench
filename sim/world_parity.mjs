@@ -48,7 +48,7 @@
 //      issued — an overlapping request moves no number, PROVED to have actually
 //      overlapped by a counter the bench keeps.
 //
-//   cd ~/projects/duck-sounds/sim && node world_parity.mjs
+//   cd ~/projects/duckbench/sim && node world_parity.mjs
 //   ... --out parity/world-v1.json      to (re)capture the phase 2 fixture
 //   ... --against parity/world-v1.json  (the default) to hold it to one
 import fs from 'node:fs';

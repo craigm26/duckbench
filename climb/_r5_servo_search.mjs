@@ -18,7 +18,7 @@
 //
 // Every candidate is written to disk and scored FROM DISK. mulberry32 seeds.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r5_servo_search.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r5_servo_search.mjs
 import fs from 'node:fs';
 import { scoreCell, scoreRobust, intentHash, saveIntent } from '../climb/robust.mjs';
 

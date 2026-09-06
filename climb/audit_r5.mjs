@@ -51,7 +51,7 @@
 //             where it shows.
 //   PHASE K   THE KILL GATE.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/audit_r5.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/audit_r5.mjs
 import fs from 'node:fs';
 import { scoreSaved as newScore, criteria, LATERAL, DUCKG, RISER_X } from '../climb/rig3.mjs';
 import { scoreSaved as oldScore } from '../climb/rig3_pre_r4.mjs';

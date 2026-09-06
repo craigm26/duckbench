@@ -20,7 +20,7 @@
 //
 // RUN IT FROM sim/, because climb_lib.mjs reads scene.mjb, duckkit-constants
 // and the ONNX by cwd-relative path:
-//     cd ~/projects/duck-sounds/sim && node ../climb/ladder.mjs
+//     cd ~/projects/duckbench/sim && node ../climb/ladder.mjs
 //
 // REPEATS ARE NOT NOISE HERE. climb_lib's attempt() is deterministic: fixed
 // spawn, fixed drop of 0.12 m, no push, no friction scaling, and ORT inference

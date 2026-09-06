@@ -6,7 +6,7 @@
 // false is the whole diagnosis: a duck that toppled and a duck that stayed
 // neatly standing on the floor in front of the step are the same "no".
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/why.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/why.mjs
 import fs from 'node:fs';
 import { replay } from '../sim/climb_lib.mjs';
 import { buildTrack } from '../site/intent.mjs';

@@ -14,7 +14,7 @@
 // It is a MEASUREMENT: tailTicks is the only field that moves, no gain is
 // tuned, no search is run.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/r6_tail_experiment.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/r6_tail_experiment.mjs
 import fs from 'node:fs';
 import { scoreRobust, intentHash, intentHashOfFile } from '../climb/robust.mjs';
 

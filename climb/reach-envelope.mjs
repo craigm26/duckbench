@@ -11,7 +11,7 @@
 //   FOOT: the sole geom centre swept over hip_pitch x knee x ankle. This is
 //         how high up a riser face a foot can be placed.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/reach-envelope.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/reach-envelope.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 

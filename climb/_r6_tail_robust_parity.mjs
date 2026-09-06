@@ -8,7 +8,7 @@
 // robust.mjs and by climb/robust_pre_r6.mjs — a byte copy of robust.mjs taken
 // immediately before the round-6 edit — compared at full float digits.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r6_tail_robust_parity.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r6_tail_robust_parity.mjs
 import fs from 'node:fs';
 import { scoreCell as NEW, PLANTS, DHS } from '../climb/robust.mjs';
 import { scoreCell as PRE } from '../climb/robust_pre_r6.mjs';

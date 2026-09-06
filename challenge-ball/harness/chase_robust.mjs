@@ -18,8 +18,8 @@
 // verdict rows. `chase/chase_parity.mjs` proves the bench's cells are these
 // cells at full float digits.
 //
-//   cd ~/projects/duck-sounds/sim && node ../chase/chase_robust.mjs
-//   cd ~/projects/duck-sounds/sim && node ../chase/chase_robust.mjs --controls
+//   cd ~/projects/duckbench/sim && node ../chase/chase_robust.mjs
+//   cd ~/projects/duckbench/sim && node ../chase/chase_robust.mjs --controls
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

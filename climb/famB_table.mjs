@@ -1,7 +1,7 @@
 // famB_table.mjs — render climb/r4_famB-results.json as the round-4 table.
 // Read-only: it scores nothing, it prints what the run already wrote.
 import fs from 'node:fs';
-const R = JSON.parse(fs.readFileSync('/home/craigm26/projects/duck-sounds/climb/r4_famB-results.json', 'utf8'));
+const R = JSON.parse(fs.readFileSync('/home/craigm26/projects/duckbench/climb/r4_famB-results.json', 'utf8'));
 const p = (...a) => console.log(...a);
 
 p('PARITY (climb/rig3_prefamB.mjs / robust_prefamB.mjs vs the extended instrument):', R.instrument.parityAll);

@@ -78,7 +78,7 @@
 // straight out of the same constant the criterion uses; PHASE E prints the
 // criterion's own threshold beside it.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/audit_r6.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/audit_r6.mjs
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 import { scoreSaved as newScore, criteria, LATERAL, DUCKG, RISER_X } from '../climb/rig3.mjs';

@@ -36,7 +36,7 @@
 // every candidate starts at k = 0 and the canonical objective alone is flat.
 // Shaping never enters a reported k or objective.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/family_b.mjs <seconds>
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/family_b.mjs <seconds>
 import fs from 'node:fs';
 import { scoreCell, scoreRobust, saveIntent, HOME, STAIR_Y } from '../climb/robust.mjs';
 

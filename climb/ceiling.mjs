@@ -11,7 +11,7 @@
 // the gap out either side to see whether 10 mm clears anywhere at all.
 //
 // RUN FROM sim/ (climb_lib reads scene.mjb and the ONNX by cwd-relative path):
-//     cd ~/projects/duck-sounds/sim && node ../climb/ceiling.mjs
+//     cd ~/projects/duckbench/sim && node ../climb/ceiling.mjs
 import fs from 'node:fs';
 import { replay } from '../sim/climb_lib.mjs';
 import { buildTrack } from '../site/intent.mjs';

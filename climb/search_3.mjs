@@ -43,7 +43,7 @@
 // searches the canonical four-step flight, where the on-tread control passes.
 // Both bests are re-scored on both flights at the end.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/search_3.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/search_3.mjs
 import fs from 'node:fs';
 import { scoreSaved, saveTrack, HOME, LO, HI, criteria } from '../climb/rig3.mjs';
 

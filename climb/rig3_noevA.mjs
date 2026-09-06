@@ -53,7 +53,7 @@
 // returns an embind object that leaks the WASM heap to 2 GB in ~20 s even when
 // .delete() is called (see climb/rig2.mjs).
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/rig3.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/rig3.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

@@ -1,3 +1,27 @@
+# duckbench
+
+The Microduck physics bench, and the harnesses built on it. Renamed from
+`duck-sounds` on 2026-09-06: the app this repo was named for was planned here
+and never built, and what the repo actually holds is the bench that
+[Microduck Studio](https://github.com/craigm26/duck-studio) and
+[microduckstudio.com](https://microduckstudio.com) depend on. GitHub redirects
+the old name; the two challenge tags (`stairs-challenge-v1`, `ball-challenge-v1`)
+and every published manifest that names `craigm26/duck-sounds` still resolve.
+
+| Folder | What it is |
+|---|---|
+| `sim/` | The bench: MuJoCo (the npm build) plus Pollen's trained policies behind an HTTP service, `node duckbench.mjs`. `/health`, `/intent`, `/policy`, `/record`, `/measure`, `/perform`, `/climb`, `/tune`, `/world`. `BENCH-SETUP.md` is the install; `PLANT.md` says which plant every number was measured in. Runs on the Pi as the `duckbench` systemd user unit. |
+| `site/` | The phone bench: the same core on MuJoCo's WebAssembly build, vendored into Microduck Studio by that repo's `make_phone_bench.sh` and checked by digest. |
+| `challenge/`, `challenge-ball/` | The stairs and ball challenge packages: cards, intents, results, scoring harnesses. Published to Hugging Face at the two tags. |
+| `climb/`, `chase/` | The search and audit rounds those packages came out of, kept as they ran. |
+| `tools/` | `duckbench-mcp.mjs`, the bench as MCP tools over stdio. |
+| `docs/`, `PLAN.md` | The Duck Sounds app plan, kept for the record. |
+
+Everything below this line is the original Duck Sounds plan and still describes
+the app that was going to live here.
+
+---
+
 # Duck Sounds
 
 Seven duck calls. Tap one and a 25 cm robot duck standing on your floor performs

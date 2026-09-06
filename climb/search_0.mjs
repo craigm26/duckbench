@@ -11,7 +11,7 @@
 // needs peaks, contact fractions and saturation.
 //
 // Run from sim/:
-//   cd ~/projects/duck-sounds/sim && node ../climb/search_0.mjs --rise 40 --seconds 300 --seed 1
+//   cd ~/projects/duckbench/sim && node ../climb/search_0.mjs --rise 40 --seconds 300 --seed 1
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';
@@ -292,7 +292,7 @@ const out = {
   strategy: 'A - beak hook + wall walk', riseMM: +args.rise, seed: SEED, seconds: SECONDS,
   evals, best: { score: +best.s.toFixed(4), params: round(best.p), ...brief(best.r) },
   offsets: offRuns, cleared, of: offsets.length, failure, improvements: log,
-  command: `cd ~/projects/duck-sounds/sim && node ../climb/search_0.mjs --rise ${args.rise} --seconds ${SECONDS} --seed ${SEED}`,
+  command: `cd ~/projects/duckbench/sim && node ../climb/search_0.mjs --rise ${args.rise} --seconds ${SECONDS} --seed ${SEED}`,
 };
 fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
 

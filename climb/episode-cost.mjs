@@ -1,7 +1,7 @@
 // What does one attempt() actually cost on this Pi? The budget for any search
 // is this number, not the mj_step figure: attempt() also runs an ONNX forward
 // pass every tick (sim/climb_lib.mjs:126).
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/episode-cost.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/episode-cost.mjs
 import fs from 'node:fs';
 import { replay } from '../sim/climb_lib.mjs';
 import { makeLoop } from '../site/duckloop.mjs';

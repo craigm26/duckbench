@@ -29,7 +29,7 @@
 // digits on every field they share. Everything must match except where the
 // whole-episode gate now bites, and every such row is listed.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/audit_r4.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/audit_r4.mjs
 import fs from 'node:fs';
 import { scoreSaved as newScore, criteria as newCriteria, LATERAL, DUCKG } from '../climb/rig3.mjs';
 import { scoreSaved as oldScore } from '../climb/rig3_pre_r4.mjs';

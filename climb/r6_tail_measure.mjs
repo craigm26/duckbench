@@ -25,7 +25,7 @@
 // It is a MEASUREMENT: nothing is tuned, nothing is searched, no file is
 // written except the results.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/r6_tail_measure.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/r6_tail_measure.mjs
 import fs from 'node:fs';
 import { scoreCell, PLANTS, DHS, intentHashOfFile } from '../climb/robust.mjs';
 

@@ -35,7 +35,7 @@
 // Scoring reads a FILE: every number reported comes from a JSON round-trip,
 // pose rounded to 5 dp and scalars to 4 dp exactly as search_2.mjs:307 saves.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/blockrig.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/blockrig.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

@@ -1,7 +1,7 @@
 // search_block.mjs — round 2, family D (drag a block, then climb).
 // ONE node process, seeded (mulberry32), every improvement logged, every
 // reported number produced by re-reading a JSON file off disk.
-//   cd ~/projects/duck-sounds/sim && node ../climb/search_block.mjs
+//   cd ~/projects/duckbench/sim && node ../climb/search_block.mjs
 import fs from 'node:fs';
 import { runEpisodeRaw, saveAndScore, scoreSaved, exportIntent, criteria,
          HOME, LO, HI, J, STAIR_Y, LATERAL, RISER_X, BLOCK_HALF } from '../climb/blockrig.mjs';

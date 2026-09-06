@@ -142,7 +142,7 @@ async function emit(address, which = 'walking') {
                 + 'libms may legitimately differ by an ulp, and this fixture has to keep passing '
                 + 'on the phone the app actually ships to. 1e-9 is nine orders of magnitude '
                 + 'below the smallest change a search would ever act on.',
-    recordedBy: 'duck-sounds sim/tune_parity.mjs --emit, from POST /tune with "trace": true',
+    recordedBy: 'duckbench sim/tune_parity.mjs --emit, from POST /tune with "trace": true',
     recordedFrom: from,
     recordedOn: new Date().toISOString().slice(0, 10),
     request: { policy: REQUEST.policy, seconds: REQUEST.seconds, drops: REQUEST.drops,

@@ -1,8 +1,8 @@
 // Merge the per-rise search_2 shards (one node process wrote each) into one
 // climb/search_2-results.json, and print the report table.
-//   cd ~/projects/duck-sounds/climb && node search_2-collect.mjs
+//   cd ~/projects/duckbench/climb && node search_2-collect.mjs
 import fs from 'node:fs';
-const dir = '/home/craigm26/projects/duck-sounds/climb';
+const dir = '/home/craigm26/projects/duckbench/climb';
 const out = {}, robust = {};
 for (const f of fs.readdirSync(dir).sort()){
   if (/^search_2-results_r\d+\.json$/.test(f)){

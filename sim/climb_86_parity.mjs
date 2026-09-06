@@ -14,7 +14,7 @@
 // the round-6 search and take a great deal longer; the proof the audits rest on
 // is this one.
 //
-//   cd ~/projects/duck-sounds/sim && node climb_86_parity.mjs
+//   cd ~/projects/duckbench/sim && node climb_86_parity.mjs
 import fs from 'node:fs';
 import { scoreSaved as newScore } from '../climb/rig3.mjs';
 import { scoreSaved as preR5Score } from '../climb/rig3_pre_r5.mjs';

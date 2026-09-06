@@ -1,6 +1,6 @@
 // Format climb/search_3-results.json into the round-2 table.
 // Pure reader: no MuJoCo, no ONNX, no episode. Run AFTER search_3.mjs.
-//   cd ~/projects/duck-sounds/climb && node report_3.mjs
+//   cd ~/projects/duckbench/climb && node report_3.mjs
 import fs from 'node:fs';
 const R = JSON.parse(fs.readFileSync('search_3-results.json', 'utf8'));
 const p = (v, n) => String(v).padStart(n);

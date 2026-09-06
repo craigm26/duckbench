@@ -6,7 +6,7 @@
 // Sign convention, measured, not assumed: NEGATIVE left_hip_pitch swings the
 // left foot FORWARD (+x). HOME is -0.4579 and puts the sole at x +7 mm.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/foot-envelope.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/foot-envelope.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 const mj = await load();

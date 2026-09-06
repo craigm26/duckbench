@@ -18,7 +18,7 @@
 // single-duck name), reimplemented here rather than imported because that
 // function is private to the bench.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/twoduck.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/twoduck.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

@@ -5,8 +5,8 @@ cloning anything. They are not runnable as they sit.**
 
 The runnable harness is the GitHub repository:
 
-    git clone https://github.com/craigm26/duck-sounds.git
-    cd duck-sounds && git checkout stairs-challenge-v1   # or main at/after 2026-09-02 if the tag is missing
+    git clone https://github.com/craigm26/duckbench.git
+    cd duckbench && git checkout stairs-challenge-v1   # or main at/after 2026-09-02 if the tag is missing
     cd sim && npm ci
 
 Running the scorer needs things that are not in this package:
@@ -22,7 +22,7 @@ Running the scorer needs things that are not in this package:
 `rig3.mjs` reads `duckkit-constants.json` and `scene.mjb` from the **current working directory**,
 so it must be run from `sim/`:
 
-    cd ~/duck-sounds/sim && node ../climb/rig3.mjs
+    cd ~/duckbench/sim && node ../climb/rig3.mjs
 
 ## What is in here
 

@@ -10,7 +10,7 @@
 // bodies by NAME and reports the lever from the neck joint's own anchor, which
 // is the joint whose torque limit is being divided.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/lever-arm.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/lever-arm.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 

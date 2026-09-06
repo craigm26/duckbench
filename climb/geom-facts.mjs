@@ -4,7 +4,7 @@
 // NAME, never by index — sim/torque.mjs's "trunk = body 1" trap (see
 // climb/lever-arm.mjs:5-11) is what happens otherwise.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/geom-facts.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/geom-facts.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 import { findStairJoints, layoutStairs, STAIR_Y, STAIR_HALF_WIDTH, STEP_HALF_DEPTH, STEP_HALF_HEIGHT } from '../site/stairs.js';

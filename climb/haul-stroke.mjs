@@ -7,7 +7,7 @@
 //       forward stroke on the robot: max forward FOOT reach is 87 mm
 //       (climb/reach-max.mjs) and the stand policy contributes none
 //       (climb/steps-results.json: every "walk" row ends at x = -1.5 mm).
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/haul-stroke.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/haul-stroke.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 const mj = await load();

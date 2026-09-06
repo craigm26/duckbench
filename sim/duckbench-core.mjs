@@ -977,7 +977,7 @@ export async function makeBench(env) {
   /**
    * Interpolate an authored keyframe track, the same smoothstep the phone draws
    * with and `record_intents.mjs` records with. TWENTY copies of this curve now
-   * exist in this repo — `grep -rn "function poseAt"` over duck-sounds, counted
+   * exist in this repo — `grep -rn "function poseAt"` over duckbench, counted
    * 2026-08-30: nineteen under sim/ and site/intent.mjs, which the browser
    * preview imports — and they all have to agree, or a motion previews as one
    * shape and runs as another. This comment said three, which is how a change

@@ -27,7 +27,7 @@
 // the seam and the handoff state is read at exactly that tick.
 //
 // One Node process. mulberry32 seeds from base 11919.
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/famB.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/famB.mjs
 import fs from 'node:fs';
 import * as R3 from '../climb/rig3.mjs';
 import * as RB from '../climb/robust.mjs';

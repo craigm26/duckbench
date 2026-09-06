@@ -25,7 +25,7 @@
 // to equal chase_robust's. That is the half a per-cell comparison cannot do:
 // two scorers can agree cell by cell and still be counted differently.
 //
-//   cd ~/projects/duck-sounds/sim && node ../chase/chase_parity.mjs
+//   cd ~/projects/duckbench/sim && node ../chase/chase_parity.mjs
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { nodeBench } from '../sim/duckbench-node.mjs';

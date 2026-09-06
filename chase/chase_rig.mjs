@@ -20,7 +20,7 @@
 // `BEST_alpha_stand.onnx` beside it is byte-identical today; the role name is
 // the one that stays right if it stops being.
 //
-//   cd ~/projects/duck-sounds/sim && node ../chase/chase_rig.mjs
+//   cd ~/projects/duckbench/sim && node ../chase/chase_rig.mjs
 import load from 'mujoco';
 import * as ort from 'onnxruntime-node';
 import fs from 'node:fs';

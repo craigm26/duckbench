@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import { scoreRobust } from './robust.mjs';
 import { scoreSaved } from './rig3.mjs';
 const P = '../climb/';
-const files = fs.readdirSync('/home/craigm26/projects/duck-sounds/climb')
+const files = fs.readdirSync('/home/craigm26/projects/duckbench/climb')
   .filter(f => /^best_r3_vault_\d+mm\.json$/.test(f)).sort();
 const out = [];
 for (const f of files) {

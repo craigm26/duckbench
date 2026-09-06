@@ -35,7 +35,7 @@
 //
 // Run from sim/ (rig2/climb_lib read scene.mjb, duckkit-constants.json and the
 // ONNX by cwd-relative path):
-//   cd ~/projects/duck-sounds/sim && RISE=40 SECONDS=500 SEED=101 node ../climb/search_2.mjs
+//   cd ~/projects/duckbench/sim && RISE=40 SECONDS=500 SEED=101 node ../climb/search_2.mjs
 //
 // Env: RISE (mm, comma list), SECONDS (wall budget per rise), SEED, TWIST
 // (+1/-1/both), TAG (output suffix), WARM (0 to disable the warm start).
@@ -300,7 +300,7 @@ for (const rmm of RISES){
     failureMode:mode, offsetChecks:checks, cleared:`${cleared}/3`, improvements:log };
   console.log(`\n[${rmm}mm] DONE ${evals} evals in ${((Date.now()-t0)/1000).toFixed(0)}s best=${best.score.toFixed(3)} ${mode} cleared ${cleared}/3\n`);
 
-  const cmd = `cd ~/projects/duck-sounds/sim && RISE=${rmm} SECONDS=${SECONDS} SEED=${process.env.SEED||777} TWIST=${TWIST} TAG=${TAG} node ../climb/search_2.mjs`;
+  const cmd = `cd ~/projects/duckbench/sim && RISE=${rmm} SECONDS=${SECONDS} SEED=${process.env.SEED||777} TWIST=${TWIST} TAG=${TAG} node ../climb/search_2.mjs`;
   fs.writeFileSync(`../climb/best_2_${rmm}mm${TAG}.json`, JSON.stringify({
     move:`B2_twist_${rmm}mm`, blend:best.p.blend, approach:best.p.approach,
     gap:best.p.gap, side:best.p.side, twistDir:best.dir,

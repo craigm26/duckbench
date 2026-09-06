@@ -3,7 +3,7 @@
 //
 // Run from sim/ (climb_lib/rig read scene.mjb, duckkit-constants.json and the
 // ONNX by cwd-relative path):
-//     cd ~/projects/duck-sounds/sim && RISE=40 SECONDS=300 node ../climb/search_1.mjs
+//     cd ~/projects/duckbench/sim && RISE=40 SECONDS=300 node ../climb/search_1.mjs
 //
 // Env: RISE (mm, comma list ok), SECONDS (wall budget per rise), SEED, TWIST
 // (+1 / -1 / both), TAG (output suffix).
@@ -184,7 +184,7 @@ for (const rmm of RISES){
     keyframes: best.tr.map(f=>({t:+f.t.toFixed(4), pose:f.pose.map(v=>+v.toFixed(5))})),
     note:`Strategy B (head press + trunk twist), twistDir=${best.dir}. objective ${best.score.toFixed(4)}, `
        + `onTop=${b.onTop}, criterion ${cleared}/3 at gap offsets -10/0/+10 mm. `
-       + `Reproduce: cd ~/projects/duck-sounds/sim && RISE=${rmm} SECONDS=${SECONDS} SEED=${process.env.SEED||12345} TWIST=${TWIST} node ../climb/search_1.mjs`,
+       + `Reproduce: cd ~/projects/duckbench/sim && RISE=${rmm} SECONDS=${SECONDS} SEED=${process.env.SEED||12345} TWIST=${TWIST} node ../climb/search_1.mjs`,
   },null,2));
   fs.writeFileSync(`../climb/search_1-results${TAG}.json`, JSON.stringify(out,null,2));
 }

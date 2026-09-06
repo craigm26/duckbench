@@ -311,8 +311,8 @@ repository is about 725 MB checked out; the shallow clone below is about 200 MB.
 missing on your mirror, `main` at or after 2026-09-02 carries the same harness.
 
 ```bash
-git clone --depth 1 --branch stairs-challenge-v1 https://github.com/craigm26/duck-sounds.git
-cd duck-sounds
+git clone --depth 1 --branch stairs-challenge-v1 https://github.com/craigm26/duckbench.git
+cd duckbench
 
 cd sim
 npm ci            # mujoco, onnxruntime-node
@@ -369,7 +369,7 @@ source: github.com/craigm26/duck-studio):
    byte, plus the two controls.
 2. Pick a bench. **This iPhone** is always there — the phone's own bench carries the same
    `climb_score.mjs`, `stairs.js` and plant as the harness — or a Pi bench running the current
-   duck-sounds. The screen asks the bench for its grid first; a bench without `/climb` says so
+   duckbench. The screen asks the bench for its grid first; a bench without `/climb` says so
    and what to update.
 3. Open a row, choose the rise (60 mm is the default) and tap **Score on this bench**. The app
    sends the fourteen cells one request each and draws the kit's verdict: `k of 9 stable`,
@@ -399,7 +399,7 @@ what happened in the GitHub issue; a real staircase is your measurement, not the
 
 ## How to submit
 
-Open an issue on <https://github.com/craigm26/duck-sounds> titled **`Stairs challenge: <rise> mm`**
+Open an issue on <https://github.com/craigm26/duckbench> titled **`Stairs challenge: <rise> mm`**
 with the intent JSON attached (attached as a file, not pasted — the score is computed from the
 file's bytes, and `intentHash` in `harness/robust.mjs` is what defines the vector's identity).
 The `sha256` printed on the leaderboard is that `intentHash` — a digest of the normalised intent,
@@ -577,7 +577,7 @@ harness/               rig3.mjs, robust.mjs, servo.mjs, audit_r6.mjs, stairs.js,
 
 ## Provenance
 
-Six rounds, 2026-09-01 to 2026-09-02, in `github.com/craigm26/duck-sounds` under `climb/`. Every
+Six rounds, 2026-09-01 to 2026-09-02, in `github.com/craigm26/duckbench` under `climb/`. Every
 published claim was re-scored from its saved file by an adversarial audit written after the
 round it audits.
 
@@ -630,7 +630,7 @@ The data in this package — every intent under `intents/`, every results file u
 `results/`, `leaderboard.md`, `MANIFEST.json` and this card — is published under
 **CC BY 4.0** (https://creativecommons.org/licenses/by/4.0/). Use it, remix it, redistribute
 it; credit "Microduck Stairs Challenge, craigm26" and link back here. The harness that
-scores it — `harness/` here, and the runnable copy at github.com/craigm26/duck-sounds — is
+scores it — `harness/` here, and the runnable copy at github.com/craigm26/duckbench — is
 **Apache-2.0**, as are duck-studio (Microduck Studio) and duckkit. Pollen Robotics' policies
 (`alpha_*.onnx`, `ball_kick_*.onnx`) and plant come from their repositories under their own
 terms, which this package does not grant.

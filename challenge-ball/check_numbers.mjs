@@ -658,7 +658,7 @@ check('duckkit has fifteen joints, with mouth at index 9',
   const missing = Object.values(repo).filter(p => !fs.existsSync(path.join(HERE, p)));
   if (missing.length) {
     skip('the snapshot is byte-identical to the repository (SKIPPED — not in the repo)',
-         'n/a', 'challenge-ball/ outside duck-sounds');
+         'n/a', 'challenge-ball/ outside duckbench');
   } else {
     const differs = Object.entries(repo).filter(([here_, there]) =>
       !fs.readFileSync(path.join(HERE, here_)).equals(fs.readFileSync(path.join(HERE, there))));

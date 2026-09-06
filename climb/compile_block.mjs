@@ -15,7 +15,7 @@
 //   (2) one added free body, prop_block: a 60 mm cube, 100 g, condim 4,
 //       friction 0.9 0.02 0.002 — block_a's line with a bigger size and mass.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/compile_block.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/compile_block.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 const mj = await load();

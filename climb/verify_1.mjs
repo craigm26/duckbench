@@ -1,6 +1,6 @@
 // The saved best_1_<rise>mm.json tracks, scored by the OFFICIAL harness
 // (sim/climb_lib.mjs replay(), untouched) at start offsets -10/0/+10 mm.
-// cd ~/projects/duck-sounds/sim && node ../climb/verify_1.mjs
+// cd ~/projects/duckbench/sim && node ../climb/verify_1.mjs
 import fs from 'node:fs';
 import { replay } from '../sim/climb_lib.mjs';
 for (const rise of [20,40,60,90,120,180]) {

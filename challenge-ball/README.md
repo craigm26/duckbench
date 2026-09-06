@@ -480,8 +480,8 @@ so it needs network beyond the registry and a platform onnxruntime ships a build
 is missing on your mirror, `main` at or after 2026-09-02 carries the same harness.
 
 ```bash
-git clone --depth 1 --branch ball-challenge-v1 https://github.com/craigm26/duck-sounds.git
-cd duck-sounds
+git clone --depth 1 --branch ball-challenge-v1 https://github.com/craigm26/duckbench.git
+cd duckbench
 
 cd sim
 npm ci            # mujoco, onnxruntime-node
@@ -561,7 +561,7 @@ source: github.com/craigm26/duck-studio):
    with `entrants/`.
 2. Pick a bench. **This iPhone** is always there — the phone's own bench carries the same
    `chase_score.mjs`, `reward_math.mjs` and plant as the harness — or a Pi bench running the
-   current duck-sounds. The screen asks the bench for its grid first; a bench without `/chase`
+   current duckbench. The screen asks the bench for its grid first; a bench without `/chase`
    says so, in its own words, with **no button beside it**.
 3. Open a row and tap **Score on `<bench>`**. The app sends the fourteen cells one request
    each, drawing progress cell by cell (`Cell 5 of 14 — 0°/0.70/.120/x1.0`), and prints
@@ -608,7 +608,7 @@ the harness's.
 
 ## How to submit
 
-Open an issue on <https://github.com/craigm26/duck-sounds> titled **`Ball challenge: <name>`**
+Open an issue on <https://github.com/craigm26/duckbench> titled **`Ball challenge: <name>`**
 with the entrant JSON attached (attached as a file, not pasted).
 
 The `sha256` on the leaderboard is the **entrant hash** — a digest of the normalised entrant, not
@@ -758,7 +758,7 @@ harness/               chase_score.mjs, reward_math.mjs, climb_score.mjs, chase_
 
 ## Provenance
 
-Built on 2026-09-02 in `github.com/craigm26/duck-sounds` under `chase/`, following the shape the
+Built on 2026-09-02 in `github.com/craigm26/duckbench` under `chase/`, following the shape the
 stairs challenge established the day before.
 
 | piece | where | what it is |
@@ -788,7 +788,7 @@ The data in this package — every entrant under `entrants/`, every results file
 `leaderboard.md`, `REWARD.md`, `MANIFEST.json` and this card — is published under **CC BY 4.0**
 (https://creativecommons.org/licenses/by/4.0/). Use it, remix it, redistribute it; credit
 "Microduck Ball Challenge, craigm26" and link back here. The harness that scores it — `harness/`
-here, and the runnable copy at github.com/craigm26/duck-sounds — is **Apache-2.0**, as are
+here, and the runnable copy at github.com/craigm26/duckbench — is **Apache-2.0**, as are
 duck-studio (Microduck Studio) and duckkit. Pollen Robotics' policies (`alpha_*.onnx`,
 `ball_kick_*.onnx`), their reward config and their plant come from their repositories under their
 own terms, which this package does not grant.

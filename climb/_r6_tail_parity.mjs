@@ -20,7 +20,7 @@
 //          tail counts and the reward — the ONE shared scorer must not have
 //          drifted from the instrument.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r6_tail_parity.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r6_tail_parity.mjs
 import fs from 'node:fs';
 import { scoreSaved as NEW } from '../climb/rig3.mjs';
 import { scoreSaved as PRE5 } from '../climb/rig3_pre_r5.mjs';

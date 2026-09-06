@@ -1,5 +1,5 @@
 // Merge the per-rise runs of climb/search_0.mjs into one results file + table.
-// Run:  cd ~/projects/duck-sounds/sim && node ../climb/search_0-collect.mjs
+// Run:  cd ~/projects/duckbench/sim && node ../climb/search_0-collect.mjs
 import fs from 'node:fs';
 const dir = '../climb';
 const files = fs.readdirSync(dir).filter(f => /^search_0-\d+mm-seed\d+\.json$/.test(f));

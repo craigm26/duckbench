@@ -1,7 +1,7 @@
 // The two numbers the whole design turns on: how far FORWARD of the trunk
 // origin can a foot go, and how far forward can the head go — over the full
 // joint travel, and with the trunk itself pitched forward.
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/reach-max.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/reach-max.mjs
 import load from 'mujoco';
 import fs from 'node:fs';
 const mj = await load();

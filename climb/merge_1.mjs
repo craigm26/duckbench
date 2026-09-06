@@ -1,8 +1,8 @@
 // Merge the per-rise tagged outputs of the two search_1 processes into one
 // climb/search_1-results.json and rename each best track to best_1_<rise>mm.json.
-// cd ~/projects/duck-sounds/climb && node merge_1.mjs
+// cd ~/projects/duckbench/climb && node merge_1.mjs
 import fs from 'node:fs';
-const dir = '/home/craigm26/projects/duck-sounds/climb';
+const dir = '/home/craigm26/projects/duckbench/climb';
 const out = {};
 for (const f of fs.readdirSync(dir).filter(n => /^search_1-results_[abc]\d\.json$/.test(n))) {
   const j = JSON.parse(fs.readFileSync(`${dir}/${f}`,'utf8'));

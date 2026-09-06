@@ -4,7 +4,7 @@
 // the experiment; this holds the SAME comparison against the six files the
 // experiment wrote, the ones that actually exercise servo.tailTicks.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r6_tail_cell0_check.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r6_tail_cell0_check.mjs
 import fs from 'node:fs';
 import { scoreSaved } from '../climb/rig3.mjs';
 import { scoreCell, intentHashOfFile } from '../climb/robust.mjs';

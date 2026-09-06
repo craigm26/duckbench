@@ -11,7 +11,7 @@
 // This probe uses rig3's spawn override to move the duck BACK and asks for a
 // real haul: block front face 150 mm from the riser, duck a further 150 mm
 // behind it. Everything else is the same episode.
-//   cd ~/projects/duck-sounds/sim && node ../climb/drag_probe.mjs
+//   cd ~/projects/duckbench/sim && node ../climb/drag_probe.mjs
 import fs from 'node:fs';
 import { saveAndScore, scoreSaved, exportIntent, HOME, J, STAIR_Y, BLOCK_HALF } from '../climb/blockrig.mjs';
 const SCRATCH = '/tmp/claude-1000/-home-craigm26/43f07dce-e62f-464d-ae1f-2fe020620950/scratchpad';

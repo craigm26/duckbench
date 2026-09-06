@@ -47,7 +47,7 @@
 // 8 s, so an approach gene is a wasted dimension.
 //
 // One process, mulberry32 seeded from 16838.
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/family_c.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/family_c.mjs
 import fs from 'node:fs';
 import { scoreCell, scoreRobust, saveIntent, HOME, LO, HI, PLANTS, DHS, CLEAR_BONUS }
   from '../climb/robust.mjs';
@@ -499,7 +499,7 @@ for (const a of arms) {
     + `feet resting on the tread: max over episode ${G.agg.feetOnTreadMax}, at the scored instant ${G.agg.meanFeetOnTreadFinal.toFixed(2)} of 2; `
     + `worse foot's closest approach to a landing spot on the tread ${G.agg.bothNear_mm.toFixed(0)} mm (best foot ${G.agg.footNear_mm.toFixed(0)} mm). `
     + `contact sequence ${intentOf(a.win.g).sequence}, opening order ${ORDERS[a.win.g.order].join('')}, lead foot ${a.win.g.lead ? 'R' : 'L'}. `
-    + `Reproduce: cd ~/projects/duck-sounds/sim && node -e "import('../climb/robust.mjs').then(async m=>console.log((await m.scoreRobust('../climb/best_r3_cornerclimb_${a.riseMM}mm.json',{rise:${(a.riseMM / 1000).toFixed(3)}})).k))"`;
+    + `Reproduce: cd ~/projects/duckbench/sim && node -e "import('../climb/robust.mjs').then(async m=>console.log((await m.scoreRobust('../climb/best_r3_cornerclimb_${a.riseMM}mm.json',{rise:${(a.riseMM / 1000).toFixed(3)}})).k))"`;
   const path = `../climb/best_r3_cornerclimb_${a.riseMM}mm.json`;
   saveIntent(intentOf(a.win.g, note), path);
   const re = await scoreRobust(path, { rise: a.rise });

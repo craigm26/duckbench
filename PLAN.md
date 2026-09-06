@@ -17,7 +17,7 @@ weekend and the reason it is worth a download.
 
 **If it can be tested on the Pi, it does not live in this repo.** DuckKit is pure
 Swift and `swift test`s on Linux aarch64; this repo is the parts that need a phone.
-The practical effect is that `duck-sounds` has almost no unit tests of its own,
+The practical effect is that `duckbench` has almost no unit tests of its own,
 because it has almost no logic of its own, and the things that would be hardest to
 debug on a device (the synth, the choreography, the timestep) are already green
 before the Mac is ever touched.
@@ -36,7 +36,7 @@ DuckKit (../duckkit, public, Apache-2.0)
   + DuckBeak           the beak pivot frame — OURS, because upstream has none
   + DuckRPC            (M3) NDJSON JSON-RPC 2.0 codec, transport-free
 
-duck-sounds (private)
+duckbench (private)
   DuckStage.swift      ARView, plane raycast, 15 ModelEntities + beak, the
                        50 Hz step and the render-frame interpolation
   DuckBody.swift       the fifteen primitives and their materials

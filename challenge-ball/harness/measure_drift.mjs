@@ -16,7 +16,7 @@
 // It measures ONE control on FOUR cells of the published grid through the same
 // `chase_rig.mjs` the leaderboard came from — no new scorer, no new criterion.
 //
-//   cd ~/projects/duck-sounds/sim && node ../challenge-ball/harness/measure_drift.mjs
+//   cd ~/projects/duckbench/sim && node ../challenge-ball/harness/measure_drift.mjs
 //
 // Writes results/chase_drift-results.json next to this package.
 import fs from 'node:fs';

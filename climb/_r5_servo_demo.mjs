@@ -1,7 +1,7 @@
 // ROUND 5 — (a) the servoed landing ENGAGES, (b) the whole-episode penetration
 // field on every published clear.
 //
-// Run from sim/:  cd ~/projects/duck-sounds/sim && node ../climb/_r5_servo_demo.mjs
+// Run from sim/:  cd ~/projects/duckbench/sim && node ../climb/_r5_servo_demo.mjs
 import fs from 'node:fs';
 import { scoreSaved } from '../climb/rig3.mjs';
 import { scoreRobust, intentHashOfFile } from '../climb/robust.mjs';
