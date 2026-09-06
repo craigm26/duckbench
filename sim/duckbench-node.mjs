@@ -165,7 +165,12 @@ export async function nodeBench({ engine = 'onnxruntime' } = {}) {
     scratch: {
       has: name => fs.existsSync(at(name)),
       get: name => fs.readFileSync(at(name)),
-      set: (name, bytes) => fs.writeFileSync(at(name), bytes),
+      // THE FOLDER IS MADE ON THE WAY: uploads live under `uploads/`, which a
+      // fresh checkout does not have and the catalogue never walks.
+      set: (name, bytes) => {
+        fs.mkdirSync(path.dirname(at(name)), { recursive: true });
+        fs.writeFileSync(at(name), bytes);
+      },
       delete: name => fs.unlinkSync(at(name)),
     },
     host: {

@@ -22,3 +22,6 @@ sim/__pycache__/
 # wrangler caches carry the Cloudflare account id; never track them
 site/.wrangler/
 .wrangler/
+
+# what /upload writes: named or digest-named networks for one bench session
+sim/uploads/

@@ -627,11 +627,46 @@ export async function makeBench(env) {
    * this one did not — which mattered the moment /policy let a caller swap to
    * that very file mid-run.
    */
+  /**
+   * What this bench can run right now: everything that shipped, plus every
+   * upload still in scratch — named as an upload's answer named it, without
+   * the extension. /health used to list only the catalogue, so a network the
+   * app had just put here and been told the name of was, one call later, a
+   * name the app's map degraded as "not on this bench".
+   */
+  function heldPolicies() {
+    // A shell whose catalogue walks its scratch too (the browser's does) would
+    // list an upload twice, once by file and once by name; the file spelling
+    // is dropped here and the name is the one a /upload answer gave.
+    const held = [...catalogue().keys()].filter(k => !k.startsWith(UPLOADS));
+    for (const file of sessions.keys()) {
+      if (file.startsWith(UPLOADS) && file.endsWith('.onnx') && env.scratch.has(file)) {
+        held.push(file.slice(UPLOADS.length, -5));
+      }
+    }
+    return held.sort();
+  }
+
+  /**
+   * WHERE AN UPLOAD LIVES, AND WHY IT IS A FOLDER OF ITS OWN. The desk shell's
+   * scratch is the disk, and its catalogue walks the same directory the shipped
+   * policies sit in — so every upload landed beside them and, at the next
+   * start, was catalogued as if it had shipped. Five hundred and eighty of them
+   * had, by the time anybody looked. Under `uploads/` the catalogue never sees
+   * them, a restart forgets them, and a name a person gave one cannot collide
+   * with a shipped policy by being restarted into one.
+   */
+  const UPLOADS = 'uploads/';
+  const uploadFile = name => `${UPLOADS}${name}.onnx`;
+  const uploadParams = name => `${UPLOADS}${name}.params`;
+
   async function policy(name) {
     // An uploaded policy is already in `sessions` under its own filename and is
     // not in the catalogue, which only walks what shipped. Check there first.
-    if (name.startsWith('uploaded-') && sessions.has(`${name}.onnx`)) {
-      return sessions.get(`${name}.onnx`);
+    // NAMED OR DIGEST-NAMED, the test is the same: an upload's file is in
+    // `scratch` under its own filename, and its session sits under that name.
+    if (env.scratch.has(uploadFile(name)) && sessions.has(uploadFile(name))) {
+      return sessions.get(uploadFile(name));
     }
     const known = catalogue();
     if (!known.has(name)) throw new Error(`unknown policy: ${name}`);
@@ -2042,7 +2077,7 @@ export async function makeBench(env) {
         timestep: TIMESTEP,
         substepsPerTick: SUBSTEPS,
         cores: env.cores,
-        policies: [...catalogue().keys()].sort(),
+        policies: heldPolicies(),
         // WHICH FILE IS DOING THE STANDING, RESOLVED BY ROLE. Every endpoint
         // that settles a duck runs this one, and it used to be pinned to the
         // literal `BEST_alpha_stand.onnx` — a training-run filename. The app
@@ -2355,8 +2390,36 @@ export async function makeBench(env) {
         return { error: `the uploaded policy is ${bytes.length} bytes; the shipped ones are under 1 MB` };
       }
       const digest = await env.sha256(bytes);
-      const name = `uploaded-${digest.slice(0, 12)}`;
-      const file = `${name}.onnx`;
+      // A NAME, WHEN THE CALLER HAS ONE. The digest is still the identity and
+      // still what an unnamed upload is called; a name is what a Control tab
+      // reads beside eight shipped networks with real names, and what a
+      // person picks from a menu. The bench keeps the last word on it: not a
+      // path, not the shape of a digest name, not a policy that shipped, and
+      // not a name already held here with different weights — each refused
+      // with the reason rather than quietly renamed.
+      let name = `uploaded-${digest.slice(0, 12)}`;
+      if (body.name !== undefined && body.name !== null && String(body.name) !== '') {
+        const asked = String(body.name).replace(/\.onnx$/i, '');
+        if (!/^[A-Za-z0-9][A-Za-z0-9._ -]{0,63}$/.test(asked) || asked.includes('..')) {
+          return { error: `"${asked}" cannot name a policy here: letters, digits, spaces, dots, `
+                        + 'dashes and underscores, up to 64, starting with a letter or digit' };
+        }
+        if (asked.startsWith('uploaded-')) {
+          return { error: `"${asked}" is the shape of a name this bench gives an unnamed upload; pick another` };
+        }
+        if (catalogue().has(asked) || catalogue().has(`${asked}.onnx`)) {
+          return { error: `"${asked}" is a policy this bench ships; an upload cannot take its name` };
+        }
+        if (env.scratch.has(uploadFile(asked))) {
+          const heldDigest = await env.sha256(env.scratch.get(uploadFile(asked)));
+          if (heldDigest !== digest) {
+            return { error: `"${asked}" is already on this bench with different weights `
+                          + `(sha256 ${heldDigest.slice(0, 12)}…); pick another name` };
+          }
+        }
+        name = asked;
+      }
+      const file = uploadFile(name);
       if (!env.scratch.has(file)) env.scratch.set(file, bytes);
       // THE PARAMETERS BESIDE THE FILE, WHEN THE CALLER HAS THEM. A desk bench
       // runs an .onnx through onnxruntime and can score it, but /tune folds a
@@ -2376,7 +2439,7 @@ export async function makeBench(env) {
           return { error: `the parameters are ${seen} bytes where this architecture's canonical `
                         + `parameters are ${FLOAT_COUNT * 4}` };
         }
-        env.scratch.set(`${name}.params`, params);
+        env.scratch.set(uploadParams(name), params);
         parametersNote = '; its canonical parameters are held too, so /tune can fold it';
       }
       try {
@@ -2892,9 +2955,9 @@ export async function makeBench(env) {
         // `.params` a desk client sent beside the file, or the `.onnx` itself
         // where a phone client sent canonical bytes under that name.
         let bytes = null;
-        if (env.scratch.has(`${name}.params`)) bytes = env.scratch.get(`${name}.params`);
-        else if (env.scratch.has(`${name}.onnx`)) {
-          const held = env.scratch.get(`${name}.onnx`);
+        if (env.scratch.has(uploadParams(name))) bytes = env.scratch.get(uploadParams(name));
+        else if (env.scratch.has(uploadFile(name))) {
+          const held = env.scratch.get(uploadFile(name));
           if ((held.byteLength ?? held.length) === FLOAT_COUNT * 4) bytes = held;
           else {
             throw new Error(`${name} was uploaded as a file without its canonical parameters, `
@@ -3326,7 +3389,7 @@ export async function makeBench(env) {
                   + 'ball\'s bearing tomorrow, with no change to the format or the hash.',
         chaseable: !!rig,
         ...(rig ? {} : { why: CHASE_WHY }),
-        policies: [...catalogue().keys()].sort(),
+        policies: heldPolicies(),
         plantName: PLANT, plantDigest: PLANT_DIGEST,
       };
     }
