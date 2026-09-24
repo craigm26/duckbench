@@ -1,6 +1,7 @@
 {
   "policies": [
     { "name": "alpha_stand.onnx", "file": "alpha_stand.bin" },
-    { "name": "alpha_walking.onnx", "file": "alpha_walking.bin" }
+    { "name": "alpha_walking.onnx", "file": "alpha_walking.bin" },
+    { "name": "duckbatch-128x128/policy.onnx", "file": "duckbatch-128x128-policy.bin" }
   ]
 }

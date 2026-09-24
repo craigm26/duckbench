@@ -29,7 +29,7 @@
 //     comparable frame-for-frame with one made on the desk, while /measure —
 //     which counts outcomes over randomised drops — is.
 import { makeBench } from './duckbench-core.mjs';
-import { makeForwardSession, FLOAT_COUNT } from './policyforward.mjs';
+import { makeForwardSession, policyByteProblem } from './policyforward.mjs';
 
 const hex = buffer => [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, '0')).join('');
 
@@ -98,9 +98,10 @@ export async function makeWebBench({ mujoco, assetBase = './assets/', sceneName 
     // runs a worker.
     cores: navigator.hardwareConcurrency || 1,
     makeSession(bytes, name) {
-      if (bytes.byteLength !== FLOAT_COUNT * 4) {
+      const problem = policyByteProblem(bytes);
+      if (problem) {
         throw new Error('this bench runs canonical parameter bytes, not ONNX: '
-                      + `${name} is ${bytes.byteLength} bytes where a policy is ${FLOAT_COUNT * 4}. `
+                      + `${name}: ${problem}. `
                       + 'Uploading a network to a phone bench is not wired yet.');
       }
       return makeForwardSession(bytes, name);

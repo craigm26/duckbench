@@ -19,18 +19,78 @@
 // attested to, and a second ONNX reader — the classic place for two
 // implementations to quietly disagree — never gets written.
 //
-// THE LAYER WIDTHS ARE NOT IN THE FILE. `canonicalParameterBytes` carries
-// numbers and no shape, because DuckPolicy.load refuses any architecture but
-// this one, so the shape is a constant on both sides rather than a header. A
-// file of the wrong length is refused here rather than reshaped into something
-// plausible.
+// THE ALPHA SHAPE CARRIES NO HEADER; EVERY OTHER SHAPE DOES. Until duckkit
+// 1.36 `DuckPolicy.load` refused any architecture but 61→512→256→128→14, so the
+// shape was a constant on both sides. It now also loads narrower students of
+// the same graph (craigm26/duckbatch's 61→128→128→14, 26,254 parameters), and
+// their identity bytes — `DuckPolicy.canonicalIdentityBytes`, v2 — begin with
+// the shape: the ASCII `DPv2`, the layer count, then each layer's inputs and
+// outputs, all little-endian uint32, then the v1 bytes. The alpha shape's bytes
+// are unchanged (v1, no header), so every .bin already on disk still loads. A
+// file whose length disagrees with its shape is refused, never reshaped.
 
-/** Outermost first, as `DuckPolicy.expectedWidths` states them. */
+/** The alpha shape, outermost first, as `DuckPolicy.expectedWidths` states it. */
 export const WIDTHS = [[61, 512], [512, 256], [256, 128], [128, 14]];
 export const OBS_WIDTH = 61;
 export const ACTION_WIDTH = 14;
-/** 61 + 61 + Σ(in·out + out) = 197,896 floats, 791,584 bytes. */
+/** 61 + 61 + Σ(in·out + out) = 197,896 floats, 791,584 bytes: the ALPHA shape's size. */
 export const FLOAT_COUNT = 2 * OBS_WIDTH + WIDTHS.reduce((n, [i, o]) => n + i * o + o, 0);
+
+/** The bounds duckkit's `DuckPolicy.shapeProblem` enforces, mirrored. */
+export const MAX_HIDDEN_LAYERS = 4, MAX_LAYER_WIDTH = 1024, MAX_PARAMETERS = 1_000_000;
+
+const floatsFor = widths => 2 * OBS_WIDTH + widths.reduce((n, [i, o]) => n + i * o + o, 0);
+
+/** duckkit's `shapeProblem`, in JS: why these widths are not a policy, or null. */
+export function shapeProblem(widths) {
+  if (!widths.length) return 'it has no layers';
+  const hidden = widths.length - 1;
+  if (hidden < 1 || hidden > MAX_HIDDEN_LAYERS) {
+    return `it has ${hidden} hidden layers; between 1 and ${MAX_HIDDEN_LAYERS} are supported`;
+  }
+  if (widths[0][0] !== OBS_WIDTH) return `its first layer takes ${widths[0][0]} inputs, not the ${OBS_WIDTH}-float observation`;
+  if (widths[hidden][1] !== ACTION_WIDTH) return `its last layer gives ${widths[hidden][1]} outputs, not the ${ACTION_WIDTH} policy joints`;
+  for (let i = 0; i < hidden; i++) {
+    if (widths[i][1] !== widths[i + 1][0]) return `layer ${i} gives ${widths[i][1]} outputs but layer ${i + 1} takes ${widths[i + 1][0]}`;
+  }
+  for (const [i, [a, b]] of widths.entries()) {
+    if (a < 1 || b < 1 || a > MAX_LAYER_WIDTH || b > MAX_LAYER_WIDTH) return `layer ${i} is ${a} to ${b}; widths run from 1 to ${MAX_LAYER_WIDTH}`;
+  }
+  const params = widths.reduce((n, [a, b]) => n + a * b + b, 0);
+  if (params > MAX_PARAMETERS) return `it has ${params} parameters; at most ${MAX_PARAMETERS} are supported`;
+  return null;
+}
+
+/**
+ * The shape these bytes declare, and where the floats start: the v2 header if
+ * there is one, the alpha shape if there is not. Throws only on a v2 header
+ * that is cut short; a shape the rule refuses comes back with its problem.
+ */
+export function readShape(u8) {
+  const magic = u8.byteLength >= 8 && u8[0] === 0x44 && u8[1] === 0x50 && u8[2] === 0x76 && u8[3] === 0x32; // "DPv2"
+  if (!magic) return { widths: WIDTHS, offset: 0, scheme: 'canonical-parameter-bytes-v1', problem: null };
+  const view = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+  const count = view.getUint32(4, true);
+  if (count > MAX_HIDDEN_LAYERS + 1 || u8.byteLength < 8 + count * 8) {
+    return { widths: [], offset: 0, scheme: 'canonical-parameter-bytes-v2',
+             problem: `the shape header declares ${count} layers and is cut short or implausible` };
+  }
+  const widths = [];
+  for (let l = 0; l < count; l++) widths.push([view.getUint32(8 + 8 * l, true), view.getUint32(12 + 8 * l, true)]);
+  return { widths, offset: 8 + 8 * count, scheme: 'canonical-parameter-bytes-v2', problem: shapeProblem(widths) };
+}
+
+/** Why these bytes are not a policy this bench runs, or null. The one check every caller uses. */
+export function policyByteProblem(bytes) {
+  const u8 = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  const shape = readShape(u8);
+  if (shape.problem) return shape.problem;
+  const want = floatsFor(shape.widths) * 4 + shape.offset;
+  if (u8.byteLength !== want) {
+    return `policy parameters are ${u8.byteLength} bytes; a ${[shape.widths[0][0], ...shape.widths.map(w => w[1])].join('-')} network needs ${want}`;
+  }
+  return null;
+}
 
 /**
  * Read the canonical bytes into the arrays a forward pass wants.
@@ -41,9 +101,9 @@ export const FLOAT_COUNT = 2 * OBS_WIDTH + WIDTHS.reduce((n, [i, o]) => n + i * 
  */
 export function loadParameters(bytes) {
   const u8 = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
-  if (u8.byteLength !== FLOAT_COUNT * 4) {
-    throw new Error(`policy parameters are ${u8.byteLength} bytes; this architecture needs ${FLOAT_COUNT * 4}`);
-  }
+  const problem = policyByteProblem(u8);
+  if (problem) throw new Error(problem);
+  const shape = readShape(u8);
   // 1.0f is 0x3F800000; on a little-endian host that 0x3f is the LAST byte.
   // Written the other way round first, this check fired on the Pi and refused
   // every policy — which is at least the failure that says so out loud.
@@ -54,11 +114,17 @@ export function loadParameters(bytes) {
   }
   // COPIED, NOT VIEWED. A Uint8Array from `fetch` is not guaranteed to start on
   // a four-byte boundary, and Float32Array over an unaligned offset throws.
-  const all = new Float32Array(u8.slice().buffer);
+  // And copied BYTE BY BYTE into a fresh buffer, not via `u8.slice(...).buffer`:
+  // in Node, `fs.readFileSync` hands back a Buffer, and `Buffer.slice` is a VIEW
+  // whose `.buffer` is the whole underlying allocation from byte 0 — so reading
+  // floats past a header that way starts at the header. It stayed hidden while
+  // every file started with its floats; the first `DPv2` student exposed it.
+  const all = new Float32Array((u8.byteLength - shape.offset) / 4);
+  new Uint8Array(all.buffer).set(u8.subarray(shape.offset));
   let at = 0;
   const take = n => all.subarray(at, at += n);
   const mean = take(OBS_WIDTH), std = take(OBS_WIDTH);
-  const layers = WIDTHS.map(([inputs, outputs]) => ({
+  const layers = shape.widths.map(([inputs, outputs]) => ({
     inputs, outputs, weights: take(inputs * outputs), biases: take(outputs),
   }));
   for (let i = 0; i < std.length; i++) {
@@ -66,7 +132,7 @@ export function loadParameters(bytes) {
       throw new Error(`normalizer std[${i}] is ${std[i]} — dividing by it would poison every inference`);
     }
   }
-  return { mean, std, layers };
+  return { mean, std, layers, widths: shape.widths, scheme: shape.scheme };
 }
 
 /**
@@ -172,13 +238,26 @@ export function foldParameters(params, gain, offset) {
  * to be able to produce bytes. Nothing in the bench writes a policy file.
  */
 export function canonicalBytes(params) {
-  const all = new Float32Array(FLOAT_COUNT);
+  const widths = params.layers.map(l => [l.inputs, l.outputs]);
+  const alpha = widths.length === WIDTHS.length && widths.every(([a, b], i) => a === WIDTHS[i][0] && b === WIDTHS[i][1]);
+  // duckkit's `canonicalIdentityBytes`: v1 (no header) for the alpha shape, so
+  // the nine recorded official fingerprints still match; v2 for anything else.
+  const header = alpha ? 0 : 8 + 8 * widths.length;
+  const floats = floatsFor(widths);
+  const out = new Uint8Array(header + floats * 4);
+  if (!alpha) {
+    const view = new DataView(out.buffer);
+    out.set([0x44, 0x50, 0x76, 0x32]); // "DPv2"
+    view.setUint32(4, widths.length, true);
+    widths.forEach(([a, b], l) => { view.setUint32(8 + 8 * l, a, true); view.setUint32(12 + 8 * l, b, true); });
+  }
+  const all = new Float32Array(out.buffer, header, floats);
   let at = 0;
   const put = a => { all.set(a, at); at += a.length; };
   put(params.mean); put(params.std);
   for (const layer of params.layers) { put(layer.weights); put(layer.biases); }
-  if (at !== FLOAT_COUNT) throw new Error(`wrote ${at} floats, not ${FLOAT_COUNT}`);
-  return new Uint8Array(all.buffer);
+  if (at !== floats) throw new Error(`wrote ${at} floats, not ${floats}`);
+  return out;
 }
 
 /** A folded policy, ready to run — the same session shape as `makeForwardSession`. */

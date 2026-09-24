@@ -30,7 +30,7 @@ import { makeLoop } from './duckloop.mjs';
 // graph and will not let you change one, so scoring a per-joint gain and trim
 // means holding the parameters and multiplying them here. Both shells can reach
 // this file — it is 60 lines of arithmetic with no machine in it.
-import { loadParameters, foldParameters, forward, FLOAT_COUNT } from './policyforward.mjs';
+import { loadParameters, foldParameters, forward, policyByteProblem } from './policyforward.mjs';
 // THE STAIRS, AND THE ONE EPISODE THAT SCORES A CLIMB ON THEM.
 //
 // `climb_score.mjs` is not a second opinion about anything: it IS the episode
@@ -2434,11 +2434,8 @@ export async function makeBench(env) {
         let params;
         try { params = decodeBase64(body.parameters); }
         catch { return { error: 'the `parameters` field is not base64' }; }
-        const seen = params.byteLength ?? params.length;
-        if (seen !== FLOAT_COUNT * 4) {
-          return { error: `the parameters are ${seen} bytes where this architecture's canonical `
-                        + `parameters are ${FLOAT_COUNT * 4}` };
-        }
+        const problem = policyByteProblem(params);
+        if (problem) return { error: `the parameters are not a policy this bench runs: ${problem}` };
         env.scratch.set(uploadParams(name), params);
         parametersNote = '; its canonical parameters are held too, so /tune can fold it';
       }
@@ -2958,7 +2955,7 @@ export async function makeBench(env) {
         if (env.scratch.has(uploadParams(name))) bytes = env.scratch.get(uploadParams(name));
         else if (env.scratch.has(uploadFile(name))) {
           const held = env.scratch.get(uploadFile(name));
-          if ((held.byteLength ?? held.length) === FLOAT_COUNT * 4) bytes = held;
+          if (policyByteProblem(held) === null) bytes = held;
           else {
             throw new Error(`${name} was uploaded as a file without its canonical parameters, `
                           + 'and /tune folds a gain into the last layer, which means holding '
@@ -2972,10 +2969,9 @@ export async function makeBench(env) {
             ? await env.readParameters(known.get(name), name)
             : await env.readAsset(known.get(name));
         }
-        const seen = bytes.byteLength ?? bytes.length;
-        if (seen !== FLOAT_COUNT * 4) {
-          throw new Error(`${name} is ${seen} bytes where this architecture's canonical `
-                        + `parameters are ${FLOAT_COUNT * 4}: /tune folds a gain into the last `
+        const problem = policyByteProblem(bytes);
+        if (problem) {
+          throw new Error(`${name}: ${problem}. /tune folds a gain into the last `
                         + 'layer, which means holding the parameters, and this bench cannot '
                         + 'produce them for that file');
         }
