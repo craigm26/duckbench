@@ -76,8 +76,12 @@ done
 # probe that makes a phone download 11.9 MB of networks to answer "can this
 # phone run one" is answering a different question. `alpha_stand` is what every
 # gated endpoint settles under and `alpha_walking` is what the physics-parity
-# script drives; pass --all to ship the rest.
-POLICIES=(alpha_stand alpha_walking)
+# script drives; pass --all to ship the rest. `duckbatch-128x128-policy` is a
+# 26,254-parameter student distilled from Pollen's velstand (craigm26/duckbatch)
+# and 105,536 bytes: it is here because "how fast is a smaller network on this
+# phone" is exactly the question a probe exists to answer, and next to
+# alpha_walking it is the comparison.
+POLICIES=(alpha_stand alpha_walking duckbatch-128x128-policy)
 if [ "${1:-}" = "--all" ]; then
   POLICIES=(); for b in "$HERE"/sim/params/*.bin; do POLICIES+=("$(basename "$b" .bin)"); done
 fi

@@ -19,5 +19,7 @@ prints the layer widths it found so a file with a different architecture is
 visible rather than silently reshaped. `policy_parity.mjs` then proves each one
 against onnxruntime.
 
-The package depends on duckkit by absolute path, which is the one thing here
-that has to be edited on another machine.
+The package depends on duckkit by tag (`from: "1.36.0"`), the first release that
+loads narrower students of the alpha graph and writes their identity bytes with
+a `DPv2` shape header; the alpha shape's bytes are unchanged (v1), so every
+existing `.bin` is still exactly what this writes.

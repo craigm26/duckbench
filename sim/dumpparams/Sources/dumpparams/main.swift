@@ -34,7 +34,10 @@ for name in names {
     let url = inDir.appendingPathComponent(name)
     do {
         let policy = try DuckPolicy.load(contentsOf: url)
-        let bytes = policy.canonicalParameterBytes
+        // Identity bytes, not bare parameter bytes: byte-identical for the alpha
+        // shape (v1), and prefixed with the shape (`DPv2`) for a narrower
+        // student, which policyforward.mjs reads its widths from.
+        let bytes = policy.canonicalIdentityBytes.bytes
         // The name the bench asks for: a community policy is `<dir>/policy.onnx`
         // to /policy, and a file whose name has a slash in it is not a file, so
         // the slash becomes a dash on disk and the manifest carries both.
@@ -43,7 +46,7 @@ for name in names {
         let out = outDir.appendingPathComponent(flat.replacingOccurrences(of: ".onnx", with: ".bin"))
         try bytes.write(to: out)
         let widths = policy.layerWidths.map { "\($0.inputs)x\($0.outputs)" }.joined(separator: " ")
-        print("\(name)\t\(bytes.count)\t\(widths)\t\(policy.parameterCount)")
+        print("\(name)\t\(bytes.count)\t\(widths)\t\(policy.parameterCount)\t\(policy.canonicalIdentityBytes.scheme)")
     } catch {
         print("\(name)\tREFUSED\t\(error)")
     }

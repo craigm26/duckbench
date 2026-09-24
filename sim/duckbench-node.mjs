@@ -21,7 +21,7 @@ import * as ort from 'onnxruntime-node';
 import { makeBench } from './duckbench-core.mjs';
 import { makeLoop } from './duckloop.mjs';
 import { declaredDefaultPoseOf } from './onnx_meta.mjs';
-import { makeForwardSession, FLOAT_COUNT } from './policyforward.mjs';
+import { makeForwardSession, policyByteProblem } from './policyforward.mjs';
 
 // ASSETS ARE FOUND BESIDE THIS FILE, NOT BESIDE THE SHELL THAT LAUNCHED IT.
 // The bench used to read `duckkit-constants.json` and scan `.` — the process's
@@ -139,7 +139,8 @@ export async function nodeBench({ engine = 'onnxruntime' } = {}) {
           throw new Error(`${name} has no canonical parameter bytes at ${file}: run dumpparams`);
         }
         const params = fs.readFileSync(at(file));
-        if (params.byteLength !== FLOAT_COUNT * 4) throw new Error(`${file} is the wrong size`);
+        const problem = policyByteProblem(params);
+        if (problem) throw new Error(`${file}: ${problem}`);
         return { ...makeForwardSession(params, name),
                  reference: declaredDefaultPoseOf(bytes, HOME) ?? undefined };
       }

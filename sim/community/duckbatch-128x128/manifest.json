@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "model_api": 1,
+  "obs_len": 61,
+  "action_len": 14,
+  "robot": {
+    "model": "microduck",
+    "hw_rev": 1,
+    "servos": "xl330",
+    "control_hz": 50
+  },
+  "name": "duckbatch-128-128",
+  "kind": "perpetual",
+  "slot": "walk",
+  "entry_pose": "standing",
+  "description": "A 26,254-parameter walking gait (61-128-128-14) distilled from Pollen's default walker (197,774 params) in simulation. Sim only: never run on hardware.",
+  "command": {
+    "encoding": "constant",
+    "idle": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "twist": [
+      "vx (m/s)",
+      "vy (m/s)",
+      "wz (rad/s)"
+    ],
+    "head": "neck/head pose",
+    "body": "unused (zeros)"
+  },
+  "duration_s": null,
+  "training": {
+    "repo": "craigm26/duckbatch",
+    "method": "population DAgger distillation",
+    "task_id": "Mjlab-VelStand-Flat-MicroDuck",
+    "run": "b002-student-size-longer/a02",
+    "teacher": "pollen-robotics/microduck-policies@1b56c396825c052a4e26e95cf2b8d8298af9e9b4/velstand.onnx",
+    "commit": "2da6dfc93a6013cce46e2b37371657de7b5ed3a7",
+    "exported": "2026-09-24T20:59:28Z"
+  },
+  "eval": {
+    "where": "mjlab Mjlab-VelStand-Flat-MicroDuck, domain randomization and pushes on",
+    "seconds_per_seed": 30.0,
+    "seeds": [
+      2001,
+      2002,
+      2003
+    ],
+    "student": {
+      "falls_per_min": 0.4561,
+      "down_frac": 0.0112,
+      "lin_err": 0.1819,
+      "ang_err": 0.4072,
+      "teacher_mse": 0.0024,
+      "recovered_frac": 0.9708,
+      "t_up_s": 0.5619
+    },
+    "teacher_same_eval": {
+      "falls_per_min": 0.1365,
+      "down_frac": 0.0043,
+      "lin_err": 0.1736,
+      "ang_err": 0.3678,
+      "teacher_mse": 0.0,
+      "recovered_frac": 0.9688,
+      "t_up_s": 0.5621
+    }
+  },
+  "verdict": {
+    "model": "jev-latest",
+    "gap": 1.74,
+    "levels": [
+      "None: indistinguishable from the teacher within eval noise",
+      "Small: a gap, but one a user would not notice while driving the duck",
+      "Material: visibly worse tracking or stability than the teacher",
+      "Severe: falls, drifts or ignores commands where the teacher does not"
+    ],
+    "probabilities": {
+      "0": 0.02,
+      "1": 0.29,
+      "2": 0.63,
+      "3": 0.06
+    },
+    "over": "final held-out comparison (eval.student vs eval.teacher_same_eval)"
+  }
+}
