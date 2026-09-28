@@ -60,6 +60,10 @@ import { makeClimbRig, criteria as climbCriteria, checkBounds as climbCheckBound
 // tail bar through `./climb_score.mjs` and its quaternion arithmetic through
 // `./reward_math.mjs`, both of which are real files in sim/ and flat files in
 // the phone bundles.
+// THE SHOT: walk to a ball, line up, kick it at a scored goal line. Its own
+// module for the same reason /chase has one — the phone bench copies it.
+import { makeShootRig, shootCells, checkParams as shootCheckParams, PITCH as SHOOT_PITCH,
+         DEFAULTS as SHOOT_DEFAULTS, LIMITS as SHOOT_LIMITS } from './shoot_score.mjs';
 import { makeChaseRig, gridCells as chaseGridCells, checkEntrant as chaseCheckEntrant,
          entrantHashPayload as chaseHashPayload, CHASE_REFUSALS, TERMS as CHASE_TERMS,
          CRITERION_SENTENCE as CHASE_CRITERION, TOUCH_MM, TRAVEL_MIN_MM,
@@ -1378,6 +1382,32 @@ export async function makeBench(env) {
    * the canon one-duck scene actuator k IS joint k; in a multi-duck scene it is
    * not, and a chase scored there would be driving the first duck's legs.
    */
+  // THE SHOT RIG: the chase rig's world, plus the walker and both kicks.
+  let SHOOT, SHOOT_WHY = null;
+  async function shootRig() {
+    if (SHOOT !== undefined) return SHOOT;
+    SHOOT = null;
+    const duck = DUCKS.find(d => d.prefix === '');
+    if (!duck) { SHOOT_WHY = 'this scene has no unprefixed duck to shoot with'; return SHOOT; }
+    const actor = async name => {
+      const loaded = await policy(name);
+      return { run: obs => loaded.net.run(obs), reference: loaded.reference };
+    };
+    try {
+      SHOOT = makeShootRig({
+        mj, model, data: new mj.MjData(model), D: duck.joints, HOME, LO, HI,
+        buildObs, projectedGravity, command, tickHz: C.tickHz,
+        stand: await actor(STAND), walk: await actor('alpha_walking.onnx'),
+        kickLeft: await actor('ball_kick_left.onnx'), kickRight: await actor('ball_kick_right.onnx'),
+      });
+      if (!SHOOT) SHOOT_WHY = `${PLANT} has no ball`;
+    } catch (error) {
+      SHOOT = null;
+      SHOOT_WHY = String(error?.message || error);
+    }
+    return SHOOT;
+  }
+
   let CHASE, CHASE_WHY = null, CHASE_BUILD;
   async function chaseRig() {
     if (CHASE_BUILD === undefined) CHASE_BUILD = buildChaseRig();
@@ -3343,6 +3373,39 @@ export async function makeBench(env) {
      * will one day be scoring a different grid and reporting it under the same
      * name, so the bench that runs them is the one that lists them.
      */
+    /*
+     * GET /shoot/grid — the pitch, the cells, the controller's parameters.
+     * POST /shoot — one shot: { cell: {ball: {x, y}}, params, sensing, seed, seconds }.
+     * Answers the outcome (goal / wide / short / fell / never kicked), how far
+     * from in, the phases, and a clip with the ball's path, so the app can draw it.
+     */
+    if (url.pathname === '/shoot/grid') {
+      return { pitch: SHOOT_PITCH, cells: shootCells(), defaults: SHOOT_DEFAULTS,
+               limits: SHOOT_LIMITS, plantName: PLANT, plantDigest: PLANT_DIGEST };
+    }
+    if (url.pathname === '/shoot') {
+      const rig = await shootRig();
+      if (!rig) return { error: `no /shoot here: ${SHOOT_WHY}` };
+      const cell = body.cell || {};
+      const ball = cell.ball || {};
+      if (![ball.x, ball.y].every(v => Number.isFinite(+v))) {
+        return { error: 'shoot needs cell.ball.x and cell.ball.y in metres' };
+      }
+      if (Math.abs(+ball.x) > 1.2 || Math.abs(+ball.y) > 1.2) {
+        return { error: 'shoot needs the ball inside the room, |x| and |y| at most 1.2 m' };
+      }
+      let params;
+      try { params = shootCheckParams(body.params); } catch (e) { return { error: String(e.message || e) }; }
+      const sensing = body.sensing === 'camera' ? 'camera' : 'state';
+      const seconds = Math.min(Math.max(+body.seconds || 30, 2), 45);
+      const seed = Number.isFinite(+body.seed) ? +body.seed : 1;
+      try {
+        const shot = await chaseJob(() => rig.runShot({ ball: { x: +ball.x, y: +ball.y } }, params,
+                                                      { seconds, sensing, seed }));
+        return { format: 'duck-shot/1', plantName: PLANT, plantDigest: PLANT_DIGEST,
+                 joints: C.jointNames.filter(n => n !== 'mouth'), ...shot };
+      } catch (e) { return { error: String(e?.message || e) }; }
+    }
     if (url.pathname === '/chase/grid') {
       const rig = await chaseRig();
       return {

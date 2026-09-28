@@ -240,6 +240,26 @@ the 1e-5 tolerance. `policy_parity.mjs` catches structural mistakes, not tiny
 numeric ones — `physics_parity.mjs`, where a closed loop amplifies, is the gate
 that catches those.
 
+## `/shoot`: walk to a ball and kick it at a goal
+
+`POST /shoot` plays one shot and `GET /shoot/grid` answers the pitch, the eleven ball
+spots, the controller's defaults and its limits. The controller (`sim/shoot_score.mjs`)
+drives Pollen's own networks closed-loop at 50 Hz through approach, align, dribble,
+creep, kick and recover, switching to `ball_kick_left/right.onnx` when the ball is
+`kickDist` ahead of the trunk. Every number it decides by is a parameter; Microduck
+Studio's "Train a duck to shoot" searches them against goals.
+
+**The goal is a scored line, not a body.** The canon plant is unchanged (its digest is in
+every answer): a goal is the ball's centre crossing x = 1.30 m within 0.30 m of the
+centre line and under 0.25 m. The posts are drawn by the app. `sensing: "camera"`
+gives the controller only a 26° field of view with bearing and range noise.
+
+Measured on this Pi, 2026-09-28, all nine core spots: the hand-written defaults 1/9;
+the searched head start 4/9, and 4/9 with the camera only. Pollen's kick sends this
+plant's 50 mm, 30 g ball at most ~0.67 m (it was trained on a 70 mm, 15 g one), which
+is why the controller dribbles first. `BENCH=http://localhost:8770 node sim/shoot_test.mjs`
+checks the contract and plays live shots.
+
 ## Rebuilding the bundle
 
 ```
