@@ -28,10 +28,13 @@ real feet slip differently from MuJoCo's contacts. In this plant odometry ended 
 `../duck-card-loop.json`, copied byte for byte from duck-studio's
 `StudioKit/Sources/StudioKit/Resources/DuckCards/duck-card-loop.json`, which Studio
 (`DuckCardLoop`) and the card reader (`cardloop.py`) both run. docs/PACKS.md in duck-studio
-("Closed-loop cards") says it in words. The numbers: a 30 cm square; walk at 0.30, 0.35, 0.45
-(Slow, Normal, Fast), back at 0.45; heading gain 1.5, cross-track gain 3.0, steering clamped to
-0.6; stop 1.5 cm early (7 cm walking back); turn on the spot at 1.5, stop 4 degrees early, settle
-0.5 s, done within 6 degrees, else up to 2 trims; 0.5 s still between cards.
+("Closed-loop cards") says it in words. **No card commands more than Studio's stick envelope**
+(`DuckDrive.maxForward` 0.3, `maxBackward` 0.3, `maxTurn` 1.5), because nobody has driven a real
+duck past it; both readers' tests and `check_duck_packs.py` hold the spec to that. The numbers: a
+30 cm square; walk at 0.25, 0.30, 0.30 (Slow, Normal, Fast), back at 0.30; heading gain 1.5,
+cross-track gain 3.0, steering clamped to 0.6; stop 1.5 cm early (7 cm walking back); give up
+after 6 s; turn on the spot at 1.5, stop 4 degrees early, settle 0.5 s, done within 6 degrees,
+else up to 2 trims; 0.5 s still between cards.
 
 ## The result
 
@@ -51,23 +54,32 @@ phases), at both state rates: 140 rows, 700 cards.
 | | 50 Hz state | 10 Hz state | both |
 |---|---|---|---|
 | falls | 0 of 70 | 0 of 70 | **0 of 140** |
-| cards that did not arrive | 0 of 350 | 0 of 350 | 0 of 700 |
-| position error, rows without Walk back | median 2.1, max 3.8 cm | median 2.9, max 4.6 cm | median 2.5, **max 4.6 cm** (100 rows) |
-| position error, rows with Walk back | median 2.8, max 4.6 cm | median 4.5, max 6.4 cm | median 3.8, **max 6.4 cm** (40 rows) |
-| heading error, rows without Walk back | median 2.3, max 10.3 degrees | median 4.4, max 9.7 | median 3.6, **max 10.3** |
-| heading error, rows with Walk back | median 6.0, max 21.0 | median 9.5, max 22.9 | median 7.5, **max 22.9** |
-| one Walk card, ground truth | median 30.6 cm [27.5 to 35.4] | median 32.3 cm [27.8 to 36.3] | |
-| one Turn card, from the card's own start | median 90.9 degrees [81.2 to 99.3] | median 92.5 [81.5 to 103.9] | |
-| seconds per Walk card | median 2.1, max 2.5 | median 2.2, max 2.6 | |
-| seconds per Turn card | median 2.4, max 2.6 | median 2.5, max 3.8 | |
-| odometry against truth at row end | median 1.1, max 2.3 cm | median 1.1, max 2.6 cm | |
+| Walk forward and Turn cards that did not arrive | 0 of 330 | 0 of 330 | 0 of 660 |
+| Walk back cards that did not arrive | 20 of 20 | 20 of 20 | **40 of 40** |
+| position error, rows without Walk back | median 2.7, max 5.7 cm | median 2.8, max 6.1 cm | median 2.7, **max 6.1 cm** (100 rows) |
+| position error, rows with Walk back | median 30.5, max 31.4 cm | median 30.7, max 32.9 cm | median 30.6, max 32.9 cm (40 rows) |
+| heading error, rows without Walk back | median 2.2, max 9.4 degrees | median 3.4, max 9.6 | median 2.7, **max 9.6** |
+| heading error, rows with Walk back | median 1.7, max 8.3 | median 2.7, max 10.4 | median 1.9, max 10.4 |
+| one Walk forward card, ground truth | median 30.5 cm [25.6 to 35.2] | median 30.7 cm [24.8 to 34.0] | |
+| one Turn card, from the card's own start | median 90.3 degrees [78.8 to 97.7] | median 91.6 [78.3 to 98.8] | |
+| seconds per Walk forward card | median 2.5, max 2.9 (3.5 at Slow) | median 2.5, max 2.8 (3.5 at Slow) | |
+| seconds per Turn card | median 2.4, max 2.6 | median 2.4, max 3.8 | |
+
+**Walk back does not walk at the stick's 0.3.** Every one of the 40 Walk back cards marched on
+the spot (at most 0.3 cm), ran out its 6 s and ended "out of time", which the reader and Studio
+say ("The card ran out of time before it got there."); the duck did not fall, and the row went
+on a square short. The canon plant walks backward only from about 0.45, which this spec will
+not send. Walk forward at 0.30 instead of 0.35 ends rows a little further off (max 6.1 cm
+against 4.6); 0.25 (Slow) still walks, at about 8.6 cm/s.
 
 Plus 0.5 s still after every card. A Turn card's own angle runs past 90 degrees when it takes
 back the heading the card before it left (the board is what it aims at), which is why single
-cards spread more than rows end. The heading error is worst in rows that end walking backward:
-at 0.45 backward the gait veers and the steering pulls it back onto the line by turning.
+cards spread more than rows end.
 
 Files: `results-50hz.json`, `results-10hz.json` (every row, every card).
+`first-spec-results-*.json` are the same rows under the first spec (0.35 forward, 0.45 back),
+which ended within 4.6 cm (6.4 with Walk back): kept as a measurement, not shipped, because
+those speeds are past the stick.
 
 ## Choosing the square, and the controller
 
@@ -113,5 +125,5 @@ falls in 120 rows. `cardsize.mjs`'s numbers (14 cm, falling turns) are the inven
   switches to its standing policy inside the command dead zone. Here the walking policy keeps
   running at a zero command between cards.
 - A real duck: IMU yaw drift, servo noise, foot slip on a classroom floor, battery sag.
-- Speeds above Pollen's pad limit (0.45 forward and back) on hardware: robotd does not clamp
-  them, but nobody has driven a duck at them from this code.
+- A Walk back that walks: at the stick's 0.3 the canon plant does not move backward. Whether a
+  real duck does is not measured.
