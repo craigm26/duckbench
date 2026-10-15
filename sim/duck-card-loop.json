@@ -1,0 +1,29 @@
+{
+  "format": "duck-card-loop/0",
+  "square_m": 0.30,
+  "control_hz": 20,
+  "stale_s": 0.5,
+  "between_s": 0.5,
+  "walk": {
+    "speed": { "slow": 0.30, "normal": 0.35, "fast": 0.45 },
+    "back_speed": { "slow": 0.45, "normal": 0.45, "fast": 0.45 },
+    "heading_gain": 1.5,
+    "cross_gain": 3.0,
+    "max_yaw": 0.6,
+    "stop_early_m": 0.015,
+    "back_stop_early_m": 0.07,
+    "max_s": 12
+  },
+  "turn": {
+    "yaw_rate": { "slow": 1.5, "normal": 1.5, "fast": 1.5 },
+    "forward": 0.0,
+    "stop_early_deg": 4,
+    "tolerance_deg": 6,
+    "trim_rate": 1.5,
+    "trim_forward": 0.0,
+    "trim_stop_early_deg": 3,
+    "trims": 2,
+    "settle_s": 0.5,
+    "max_s": 10
+  }
+}
