@@ -79,7 +79,9 @@ class OpenAIChat:
         if self.api_key:
             headers["authorization"] = f"Bearer {self.api_key}"
         delay = 2.0
-        for attempt in range(self.retries + 1):
+        attempt = 0
+        while attempt <= self.retries:
+            attempt += 1
             req = urllib.request.Request(self.base_url + "/chat/completions",
                                          data=json.dumps(body).encode("utf-8"), headers=headers, method="POST")
             try:
@@ -96,14 +98,15 @@ class OpenAIChat:
                         and self.prompt_layout == "system+user"):
                     self.prompt_layout = "system text at the head of the user message"
                     body["messages"] = self._messages(system, user)
+                    attempt -= 1               # a change of layout is not a retry
                     continue
-                if e.code in (408, 425, 429, 500, 502, 503, 504) and attempt < self.retries:
+                if e.code in (408, 425, 429, 500, 502, 503, 504) and attempt <= self.retries:
                     time.sleep(delay)
                     delay *= 2
                     continue
                 raise ModelError(f"{self.name}: HTTP {e.code}: {detail}") from e
             except (urllib.error.URLError, TimeoutError, KeyError, IndexError, ValueError) as e:
-                if attempt < self.retries:
+                if attempt <= self.retries:
                     time.sleep(delay)
                     delay *= 2
                     continue

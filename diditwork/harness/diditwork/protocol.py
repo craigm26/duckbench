@@ -89,6 +89,36 @@ def _not_json(name: str):
     raise ValueError(f"{name} is not JSON")
 
 
+def _double(text: str) -> float:
+    """Every JSON number is read as an IEEE 754 double, and one that does not fit is not JSON."""
+    value = float(text)
+    if not math.isfinite(value):
+        raise ValueError(f"{text[:20]} does not fit in a double")
+    return value
+
+
+def depth(text: str) -> int:
+    """The deepest nesting of objects and arrays in a JSON text, outside its strings."""
+    deepest = level = 0
+    in_string = escaped = False
+    for c in text:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif c == "\\":
+                escaped = True
+            elif c == '"':
+                in_string = False
+        elif c == '"':
+            in_string = True
+        elif c in "{[":
+            level += 1
+            deepest = max(deepest, level)
+        elif c in "}]":
+            level -= 1
+    return deepest
+
+
 def _number(value) -> float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
@@ -134,8 +164,11 @@ def parse(spec: dict, reply: str, *, report_only: bool = False) -> tuple[dict | 
     span = first_json_object(reply)
     if span is None:
         return None, {"refusal": "no_json"}
+    text = reply[span[0]:span[1]]
+    if depth(text) > spec["protocol"]["max_depth"]:
+        return None, {"refusal": "no_json"}
     try:
-        obj = json.loads(reply[span[0]:span[1]], parse_constant=_not_json)
+        obj = json.loads(text, parse_constant=_not_json, parse_int=_double, parse_float=_double)
     except ValueError:
         return None, {"refusal": "no_json"}
     if not isinstance(obj, dict):

@@ -210,6 +210,14 @@ PARSE_CASES = [
     'no json here',
     '',
     '{bad json} {"action": "look"}',
+    '{"action": "walk", "seconds": 1' + '0' * 400 + '}',
+    '{"action": "walk", "seconds": 1e400}',
+    '{"action": "report", "outcome": "failure", "confidence": -0.0}',
+    '{"action": "look", "x": ' + '[' * 63 + ']' * 63 + '}',
+    '{"action": "look", "x": ' + '[' * 64 + ']' * 64 + '}',
+    '{"action": "look", "x": ' + '[' * 1000 + ']' * 1000 + '}',
+    '{"action": "look", "s": "[[[[{{{{ \\" }"}',
+    '{"action": "turn", "direction": "left", "seconds": 3}\u2028',
 ]
 
 

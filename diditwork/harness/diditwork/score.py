@@ -48,7 +48,9 @@ def read_records(paths) -> list[dict]:
     """Every record in the given JSONL files; a re-run episode replaces an earlier error."""
     by_key: dict[tuple[str, str], dict] = {}
     for path in paths:
-        for line in Path(path).read_text(encoding="utf-8").splitlines():
+        # split("\n"), not splitlines(): a record may hold U+2028 or U+0085 inside a
+        # string, and splitlines() would cut it there.
+        for line in Path(path).read_text(encoding="utf-8").split("\n"):
             if not line.strip():
                 continue
             rec = json.loads(line)

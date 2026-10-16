@@ -46,7 +46,7 @@ def _done(path: Path, model_name: str) -> set[str]:
     if not path.exists():
         return set()
     done = set()
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line in path.read_text(encoding="utf-8").split("\n"):
         if line.strip():
             rec = json.loads(line)
             if rec["model"] == model_name and rec["end"] != "error":
@@ -65,18 +65,14 @@ def cmd_run(args) -> int:
     probe = models.from_spec(args.model)
     done = _done(out, probe.name) if not args.no_resume else set()
     todo = [e for e in todo if e.id not in done]
-    if args.real:
-        from .robot import RobotWorld
-        worlds = [RobotWorld.from_args(args)]
-    else:
-        from .bench import BenchWorld
-        worlds = [BenchWorld(url) for url in args.bench]
-        for w in worlds:
-            d = w.describe()
-            if not d["canonPlant"] and not args.any_plant:
-                print(f"{w.url} runs plant {d['plantName']} ({d['plantDigest']}), not the canon plant; "
-                      f"pass --any-plant to run on it anyway", file=sys.stderr)
-                return 2
+    from .bench import BenchWorld
+    worlds = [BenchWorld(url) for url in args.bench]
+    for w in worlds:
+        d = w.describe()
+        if not d["canonPlant"] and not args.any_plant:
+            print(f"{w.url} runs plant {d['plantName']} ({d['plantDigest']}), not the canon plant; "
+                  f"pass --any-plant to run on it anyway", file=sys.stderr)
+            return 2
     print(f"{probe.name}: {len(todo)} episodes to run ({len(done)} already in {out}); "
           f"{len(worlds)} world(s); spec {spec['version']} sha256 {digest[:12]}", file=sys.stderr)
 
@@ -107,7 +103,7 @@ def cmd_run(args) -> int:
                 truth = (rec.get("truth") or {}).get("success")
                 line = (f"[{tally['done']}/{len(todo)} {time.time() - started:6.0f}s] {ep.id}: {rec['end']}"
                         + (f" -> {said.get('outcome')}" if said else "")
-                        + ("" if truth is None or args.real else f" (truth {'success' if truth else 'failure'})")
+                        + ("" if truth is None else f" (truth {'success' if truth else 'failure'})")
                         + (f" ERROR {rec.get('error')}" if rec["end"] == "error" else ""))
                 print(line, file=sys.stderr, flush=True)
 
@@ -154,7 +150,9 @@ def cmd_vectors(args) -> int:
 
 
 def cmd_show(args) -> int:
-    for line in Path(args.file).read_text(encoding="utf-8").splitlines():
+    for line in Path(args.file).read_text(encoding="utf-8").split("\n"):
+        if not line.strip():
+            continue
         rec = json.loads(line)
         if rec["episode"]["id"] != args.episode:
             continue
@@ -183,10 +181,6 @@ def main(argv=None) -> int:
 
     r = sub.add_parser("run")
     r.add_argument("--bench", action="append", default=[], help="duckbench URL; repeat for parallel workers")
-    r.add_argument("--real", action="store_true", help="drive a real Microduck instead of a bench")
-    r.add_argument("--duck", help="real duck: host:port of microduck-bridge, or unix:/run/robotd.sock")
-    r.add_argument("--camera-url", help="real duck: GET /frame URL, e.g. http://duck.local:8080/frame")
-    r.add_argument("--calibration", help="real duck: camera calibration JSON (see README)")
     r.add_argument("--model", required=True)
     r.add_argument("--out", required=True)
     r.add_argument("--tasks", nargs="+", default=list(TASK_IDS), choices=TASK_IDS)
@@ -218,8 +212,8 @@ def main(argv=None) -> int:
     w.set_defaults(func=cmd_show)
 
     args = p.parse_args(argv)
-    if args.command == "run" and not args.real and not args.bench:
-        p.error("run needs --bench URL (or --real for a Microduck)")
+    if args.command == "run" and not args.bench:
+        p.error("run needs --bench URL; a real Microduck runs this eval from Microduck Studio")
     return args.func(args)
 
 

@@ -142,7 +142,9 @@ def write_evallogs(records: list[dict], out_dir: str, *, spec_path=SPEC_PATH) ->
             eval=EvalSpec(
                 task=spec["format"],
                 policy=model,
-                embodiment="Microduck (real)" if real else "duckbench (simulated Microduck)",
+                embodiment=("Microduck (real)" if real else
+                            f"duckbench (simulated Microduck), plant {backend.get('plantName')} "
+                            f"{(backend.get('plantDigest') or 'unknown')[:12]}"),
                 created=finished[0] if finished and finished[0] else "",
                 inspect_robots_version=version("inspect-robots"),
                 policy_config={"served_model": served, "sampling": "the endpoint's default",
