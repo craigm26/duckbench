@@ -15,6 +15,7 @@ and every published manifest that names `craigm26/duck-sounds` still resolve.
 | `challenge/`, `challenge-ball/` | The stairs and ball challenge packages: cards, intents, results, scoring harnesses. Published to Hugging Face at the two tags. |
 | `climb/`, `chase/` | The search and audit rounds those packages came out of, kept as they ran. |
 | `tools/` | `duckbench-mcp.mjs`, the bench as MCP tools over stdio. |
+| `diditwork/` | *Did it work?*: a model drives the duck through five text actions and reports whether its task succeeded; the physics says whether it did. Scores the report, not the task. Simulation only so far. |
 | `docs/`, `PLAN.md` | The Duck Sounds app plan, kept for the record. |
 
 Everything below this line is the original Duck Sounds plan and still describes

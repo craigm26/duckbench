@@ -25,3 +25,6 @@ site/.wrangler/
 
 # what /upload writes: named or digest-named networks for one bench session
 sim/uploads/
+
+# did-it-work: Python caches
+diditwork/**/__pycache__/
