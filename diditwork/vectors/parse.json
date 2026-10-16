@@ -1,0 +1,697 @@
+{
+ "format": "did-it-work/0 vectors",
+ "spec_version": "0.5.0",
+ "spec_sha256": "fcc6573ed0c48fe1c023d052606c4081d48d606cf88332c6e2ad0f21bc2f5b87",
+ "cases": [
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 2}",
+   "report_only": false,
+   "action": {
+    "action": "walk",
+    "seconds": 2.0
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"walk\", \"seconds\": 2}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 2}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\":\"walk\",\"seconds\":2.5}",
+   "report_only": false,
+   "action": {
+    "action": "walk",
+    "seconds": 2.5
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"walk\", \"seconds\": 2.5}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\":\"walk\",\"seconds\":2.5}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 0.4}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "walk"
+   },
+   "refused_text": "That was not a valid action: For walk, seconds has to be a number from 0.5 to 4. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 0.4}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 4.0001}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "walk"
+   },
+   "refused_text": "That was not a valid action: For walk, seconds has to be a number from 0.5 to 4. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 4.0001}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": \"2\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "walk"
+   },
+   "refused_text": "That was not a valid action: For walk, seconds has to be a number from 0.5 to 4. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": \"2\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": true}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "walk"
+   },
+   "refused_text": "That was not a valid action: For walk, seconds has to be a number from 0.5 to 4. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": true}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "walk"
+   },
+   "refused_text": "That was not a valid action: For walk, seconds has to be a number from 0.5 to 4. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"left\", \"seconds\": 1}",
+   "report_only": false,
+   "action": {
+    "action": "turn",
+    "direction": "left",
+    "seconds": 1.0
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"turn\", \"direction\": \"left\", \"seconds\": 1}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"left\", \"seconds\": 1}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"up\", \"seconds\": 1}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "turn_direction"
+   },
+   "refused_text": "That was not a valid action: For turn, direction has to be left or right. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"up\", \"seconds\": 1}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"right\", \"seconds\": 0.25}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "seconds",
+    "about": "turn"
+   },
+   "refused_text": "That was not a valid action: For turn, seconds has to be a number from 0.5 to 3. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"turn\", \"direction\": \"right\", \"seconds\": 0.25}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"kick\", \"foot\": \"left\"}",
+   "report_only": false,
+   "action": {
+    "action": "kick",
+    "foot": "left"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"kick\", \"foot\": \"left\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"kick\", \"foot\": \"left\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"kick\", \"foot\": \"both\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "foot"
+   },
+   "refused_text": "That was not a valid action: For kick, foot has to be left or right. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"kick\", \"foot\": \"both\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\"}",
+   "report_only": false,
+   "action": {
+    "action": "look",
+    "direction": "ahead"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"look\", \"direction\": \"ahead\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"left\"}",
+   "report_only": false,
+   "action": {
+    "action": "look",
+    "direction": "left"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"look\", \"direction\": \"left\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"left\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"down\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "look_direction"
+   },
+   "refused_text": "That was not a valid action: For look, direction has to be ahead, left or right. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"down\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.8}",
+   "report_only": false,
+   "action": {
+    "action": "report",
+    "outcome": "success",
+    "confidence": 0.8
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.8}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.8}",
+   "report_only": true,
+   "action": {
+    "action": "report",
+    "outcome": "success",
+    "confidence": 0.8
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.8}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"cannot_tell\"}",
+   "report_only": false,
+   "action": {
+    "action": "report",
+    "outcome": "cannot_tell",
+    "confidence": null
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"cannot_tell\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"cannot_tell\"}",
+   "report_only": true,
+   "action": {
+    "action": "report",
+    "outcome": "cannot_tell",
+    "confidence": null
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"cannot_tell\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"failure\", \"confidence\": 1.5}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "confidence"
+   },
+   "refused_text": "That was not a valid action: For report, confidence has to be a number from 0 to 1. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"failure\", \"confidence\": 1.5}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "confidence"
+   },
+   "refused_text": "That was not a valid action: For report, confidence has to be a number from 0 to 1. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"maybe\", \"confidence\": 0.5}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "outcome"
+   },
+   "refused_text": "That was not a valid action: For report, outcome has to be success, failure or cannot_tell. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"maybe\", \"confidence\": 0.5}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "outcome"
+   },
+   "refused_text": "That was not a valid action: For report, outcome has to be success, failure or cannot_tell. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.9, \"notes\": \"dropped\"}",
+   "report_only": false,
+   "action": {
+    "action": "report",
+    "outcome": "success",
+    "confidence": 0.9
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.9}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.9, \"notes\": \"dropped\"}",
+   "report_only": true,
+   "action": {
+    "action": "report",
+    "outcome": "success",
+    "confidence": 0.9
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"report\", \"outcome\": \"success\", \"confidence\": 0.9}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"dance\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "unknown_action"
+   },
+   "refused_text": "That was not a valid action: The action has to be one of walk, turn, kick, look or report. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"dance\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "unknown_action"
+   },
+   "refused_text": "That was not a valid action: The action has to be one of walk, turn, kick, look or report. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": NaN}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": NaN}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "I will look first. {\"action\": \"look\", \"direction\": \"ahead\"}",
+   "report_only": false,
+   "action": {
+    "action": "look",
+    "direction": "ahead"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"look\", \"direction\": \"ahead\"}",
+   "extra_text": true
+  },
+  {
+   "reply": "I will look first. {\"action\": \"look\", \"direction\": \"ahead\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "```json\n{\"action\": \"kick\", \"foot\": \"right\"}\n```",
+   "report_only": false,
+   "action": {
+    "action": "kick",
+    "foot": "right"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"kick\", \"foot\": \"right\"}",
+   "extra_text": true
+  },
+  {
+   "reply": "```json\n{\"action\": \"kick\", \"foot\": \"right\"}\n```",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"ahead\"} {\"action\": \"kick\", \"foot\": \"left\"}",
+   "report_only": false,
+   "action": {
+    "action": "look",
+    "direction": "ahead"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"look\", \"direction\": \"ahead\"}",
+   "extra_text": true
+  },
+  {
+   "reply": "{\"action\": \"look\", \"direction\": \"ahead\"} {\"action\": \"kick\", \"foot\": \"left\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "{\"note\": \"a brace } inside a string\", \"action\": \"look\"}",
+   "report_only": false,
+   "action": {
+    "action": "look",
+    "direction": "ahead"
+   },
+   "refusal": null,
+   "refused_text": null,
+   "canonical": "{\"action\": \"look\", \"direction\": \"ahead\"}",
+   "extra_text": false
+  },
+  {
+   "reply": "{\"note\": \"a brace } inside a string\", \"action\": \"look\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "report_only"
+   },
+   "refused_text": "That was not a valid action: Only a report is accepted now. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 2",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "{\"action\": \"walk\", \"seconds\": 2",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "no json here",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "no json here",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": false
+  },
+  {
+   "reply": "{bad json} {\"action\": \"look\"}",
+   "report_only": false,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  },
+  {
+   "reply": "{bad json} {\"action\": \"look\"}",
+   "report_only": true,
+   "action": null,
+   "refusal": {
+    "refusal": "no_json"
+   },
+   "refused_text": "That was not a valid action: There was no JSON object in the reply. Reply with one JSON object.",
+   "canonical": null,
+   "extra_text": true
+  }
+ ],
+ "compare": "action, refusal and every string exactly"
+}

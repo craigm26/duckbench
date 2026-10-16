@@ -1,0 +1,1623 @@
+{
+ "format": "did-it-work/0 vectors",
+ "spec_version": "0.5.0",
+ "spec_sha256": "fcc6573ed0c48fe1c023d052606c4081d48d606cf88332c6e2ad0f21bc2f5b87",
+ "cases": [
+  {
+   "name": "nothing in the world",
+   "scene": {
+    "duck": {
+     "x": 0,
+     "y": 0,
+     "z": 0.116,
+     "yaw": 0,
+     "upright": true
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "ball dead ahead",
+   "scene": {
+    "duck": {
+     "x": 0,
+     "y": 0,
+     "z": 0.116,
+     "yaw": 0,
+     "upright": true
+    },
+    "ball": [
+     0.5,
+     0.0
+    ],
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 0.50 m away, straight ahead.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "ball and box, ball inside",
+   "scene": {
+    "duck": {
+     "x": 0.02,
+     "y": -0.01,
+     "z": 0.116,
+     "yaw": 0.03,
+     "upright": true
+    },
+    "ball": [
+     0.9,
+     0.04
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 0.88 m away, 2 degrees left; the goal box (a taped rectangle on the floor), its near edge 0.53 m away, 2 degrees right. The ball is inside the goal box.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "ball and box, ball outside",
+   "scene": {
+    "duck": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.116,
+     "yaw": 0.0,
+     "upright": true
+    },
+    "ball": [
+     1.75,
+     0.02
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 1.75 m away, 1 degree left; the goal box (a taped rectangle on the floor), its near edge 0.55 m away, straight ahead. The ball is outside the goal box.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "ball on the box's edge band",
+   "scene": {
+    "duck": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.116,
+     "yaw": 0.0,
+     "upright": true
+    },
+    "ball": [
+     0.9,
+     0.2061
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 0.92 m away, 13 degrees left; the goal box (a taped rectangle on the floor), its near edge 0.55 m away, straight ahead. The ball is on the edge of the goal box.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "duck standing in the box",
+   "scene": {
+    "duck": {
+     "x": 0.8,
+     "y": 0.0,
+     "z": 0.116,
+     "yaw": 0.0,
+     "upright": true
+    },
+    "ball": [
+     1.1,
+     0.05
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 0.30 m away, 9 degrees left; the goal box (a taped rectangle on the floor), around your feet. The ball is inside the goal box.",
+    "left": "Camera, looking left: the goal box (a taped rectangle on the floor), around your feet.",
+    "right": "Camera, looking right: the goal box (a taped rectangle on the floor), around your feet."
+   },
+   "on_step": false
+  },
+  {
+   "name": "cone to the left",
+   "scene": {
+    "duck": {
+     "x": 0,
+     "y": 0,
+     "z": 0.116,
+     "yaw": 0,
+     "upright": true
+    },
+    "cone": [
+     0.7,
+     0.4
+    ],
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the orange cone, 0.81 m away, 30 degrees left.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "cone behind",
+   "scene": {
+    "duck": {
+     "x": 0,
+     "y": 0,
+     "z": 0.116,
+     "yaw": 0,
+     "upright": true
+    },
+    "cone": [
+     -0.7,
+     0.1
+    ],
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "cone beyond range",
+   "scene": {
+    "duck": {
+     "x": 0,
+     "y": 0,
+     "z": 0.116,
+     "yaw": 0,
+     "upright": true
+    },
+    "cone": [
+     2.71,
+     0.03
+    ],
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "on top of the step",
+   "scene": {
+    "duck": {
+     "x": 0.1,
+     "y": 1.3,
+     "z": 0.176,
+     "yaw": 1.6,
+     "upright": true
+    },
+    "step": {
+     "x": 0.1,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: you are standing on top of the step.",
+    "left": "Camera, looking left: you are standing on top of the step.",
+    "right": "Camera, looking right: you are standing on top of the step."
+   },
+   "on_step": true
+  },
+  {
+   "name": "random 12",
+   "scene": {
+    "duck": {
+     "x": -0.2683320949363284,
+     "y": -0.15424114719819984,
+     "z": 0.116,
+     "yaw": -2.2915802510320242,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "step": {
+     "x": -0.0314,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 13",
+   "scene": {
+    "duck": {
+     "x": -0.1760359821486252,
+     "y": -0.19718647626206495,
+     "z": 0.116,
+     "yaw": -0.4781041965978474,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.828753271166716,
+     -0.28406286297442884
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the ball, 2.01 m away, 25 degrees left.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 14",
+   "scene": {
+    "duck": {
+     "x": -0.08535334778458639,
+     "y": -0.10336915798593593,
+     "z": 0.116,
+     "yaw": -3.052917087498379,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.13906399713561401,
+     -0.8910508540171678
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 15",
+   "scene": {
+    "duck": {
+     "x": 0.14666184330773063,
+     "y": -0.16711281456090332,
+     "z": 0.116,
+     "yaw": -2.2890151117259583,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 16",
+   "scene": {
+    "duck": {
+     "x": -0.2509371638915332,
+     "y": -0.07178316072762245,
+     "z": 0.116,
+     "yaw": -2.414738529279878,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.30167759192127597,
+     0.7350109987155378
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 17",
+   "scene": {
+    "duck": {
+     "x": -0.021347877168154283,
+     "y": 0.0558291583939754,
+     "z": 0.116,
+     "yaw": 2.496731149026819,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.789021486219295,
+     0.9677574567357292
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 18",
+   "scene": {
+    "duck": {
+     "x": -0.10854254397864904,
+     "y": -0.029372300053975453,
+     "z": 0.116,
+     "yaw": -1.8784741013106987,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.5542242687174377,
+     0.8866321081000226
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 19",
+   "scene": {
+    "duck": {
+     "x": -0.08126944871040093,
+     "y": 0.16317638875343882,
+     "z": 0.116,
+     "yaw": 1.301933061958941,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.3543032538042694,
+     0.7862665811720198
+    ],
+    "cone": [
+     -0.5765176979176834,
+     -0.7251989546186566
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 20",
+   "scene": {
+    "duck": {
+     "x": -0.2936416544765983,
+     "y": -0.17325736279902595,
+     "z": 0.116,
+     "yaw": 2.5054289005125003,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     -0.8388745665206172,
+     -0.9453383680645528
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 21",
+   "scene": {
+    "duck": {
+     "x": -0.24681115499621953,
+     "y": -0.21988797022945258,
+     "z": 0.116,
+     "yaw": 0.5601479967437011,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.5019443863738395,
+     -0.8912870637904771
+    ],
+    "cone": [
+     1.1296535502704863,
+     -0.5523396413837198
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 22",
+   "scene": {
+    "duck": {
+     "x": 0.2125377229576711,
+     "y": -0.11556702281580922,
+     "z": 0.116,
+     "yaw": -0.1613438362479096,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.7893074181346136,
+     -0.31397097181516287
+    ],
+    "cone": [
+     1.3871255450243072,
+     0.9817768154429269
+    ],
+    "step": {
+     "x": -0.1927,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 0.61 m away, 10 degrees right.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 23",
+   "scene": {
+    "duck": {
+     "x": -0.22357671384504185,
+     "y": -0.09360979158687066,
+     "z": 0.116,
+     "yaw": 0.5362090373800013,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     -0.01785493520034498,
+     0.33432952337779653
+    ],
+    "cone": [
+     -0.3091989266561983,
+     0.007512426891193691
+    ],
+    "step": {
+     "x": -0.1507,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the ball, 0.47 m away, 34 degrees left.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 24",
+   "scene": {
+    "duck": {
+     "x": -0.14440553081153984,
+     "y": 0.21412466116080692,
+     "z": 0.116,
+     "yaw": 1.440701396982238,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 25",
+   "scene": {
+    "duck": {
+     "x": 0.13567105475015145,
+     "y": -0.1274541537249393,
+     "z": 0.116,
+     "yaw": -2.2958352979276366,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.7394722675597685,
+     -0.37753865275873477
+    ],
+    "step": {
+     "x": 0.0692,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: the orange cone, 0.91 m away, 33 degrees right."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 26",
+   "scene": {
+    "duck": {
+     "x": 0.24869048519303388,
+     "y": 0.07419471466014199,
+     "z": 0.116,
+     "yaw": -1.3607989697457872,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.4861519057185122,
+     0.45745711009662604
+    ],
+    "cone": [
+     1.454345628743773,
+     0.32680995354637754
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": 0.1265,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 27",
+   "scene": {
+    "duck": {
+     "x": 0.24432580052348668,
+     "y": -0.13651170886522282,
+     "z": 0.116,
+     "yaw": 1.9885124783895707,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.5772540733251771,
+     0.8056380952761735
+    ],
+    "step": {
+     "x": 0.2417,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the orange cone, 1.25 m away, 17 degrees left.",
+    "right": "Camera, looking right: the step, its near edge 1.27 m away, 24 degrees right; its top is about 6 cm above the floor you are on."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 28",
+   "scene": {
+    "duck": {
+     "x": -0.23296778330955986,
+     "y": 0.09145269625795444,
+     "z": 0.116,
+     "yaw": -0.8338378844345891,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 29",
+   "scene": {
+    "duck": {
+     "x": -0.17574152665303075,
+     "y": 0.2715160613674709,
+     "z": 0.116,
+     "yaw": -1.4660558756278874,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.90106519697044,
+     -0.22402947870172873
+    ],
+    "cone": [
+     -0.5813493342157198,
+     0.8762495049319274
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 30",
+   "scene": {
+    "duck": {
+     "x": -0.25682776404464885,
+     "y": 0.21943649680047767,
+     "z": 0.116,
+     "yaw": 1.2929781697641003,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.9157053212205168,
+     0.010752337459311478
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 31",
+   "scene": {
+    "duck": {
+     "x": 0.04575470276624244,
+     "y": 0.19419719614526665,
+     "z": 0.116,
+     "yaw": -0.054862683516592625,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.4197982368225994,
+     0.5100560720730762
+    ],
+    "cone": [
+     0.5680689062523046,
+     0.09862550123571134
+    ],
+    "step": {
+     "x": 0.0061,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the orange cone, 0.53 m away, 7 degrees right.",
+    "left": "Camera, looking left: the ball, 1.41 m away, 16 degrees left.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 32",
+   "scene": {
+    "duck": {
+     "x": -0.028300253723158975,
+     "y": -0.22716705292155887,
+     "z": 0.116,
+     "yaw": -0.9614690767176963,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.7581119782584054,
+     0.925839618807391
+    ],
+    "cone": [
+     1.4592853688934606,
+     -0.047075384290808264
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": 0.0865,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 33",
+   "scene": {
+    "duck": {
+     "x": -0.06150667372727564,
+     "y": -0.21712564159813996,
+     "z": 0.116,
+     "yaw": 2.412465916507969,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.1401728079216484,
+     -0.25001241732830226
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 34",
+   "scene": {
+    "duck": {
+     "x": 0.0055602783562270774,
+     "y": 0.010235560781232278,
+     "z": 0.116,
+     "yaw": -0.0662747997039248,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.4730602976617557,
+     -0.07530700956741487
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 35",
+   "scene": {
+    "duck": {
+     "x": 0.26517226301017954,
+     "y": -0.15066643093175996,
+     "z": 0.116,
+     "yaw": 2.143377747266002,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.6827826080499086,
+     -0.7497086134578723
+    ],
+    "cone": [
+     -0.09033486964480819,
+     0.36909410958752886
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the orange cone, 0.63 m away, 2 degrees left.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 36",
+   "scene": {
+    "duck": {
+     "x": -0.10838724899540744,
+     "y": -0.2672703780797888,
+     "z": 0.116,
+     "yaw": 1.1695701199945416,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     -0.3693918159943257,
+     0.15530065994201325
+    ],
+    "cone": [
+     -0.6899049656651336,
+     -0.40473546453017817
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 37",
+   "scene": {
+    "duck": {
+     "x": 0.023170874811882958,
+     "y": 0.17434382408952387,
+     "z": 0.116,
+     "yaw": -0.04604695695497574,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": 0.2214,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the goal box (a taped rectangle on the floor), its near edge 0.53 m away, 3 degrees left.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 38",
+   "scene": {
+    "duck": {
+     "x": 0.016414573483314654,
+     "y": 0.13985238325981053,
+     "z": 0.116,
+     "yaw": -1.1777337060731128,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.04132887110905781,
+     -0.34404595053204035
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: the orange cone, 0.48 m away, 20 degrees right."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 39",
+   "scene": {
+    "duck": {
+     "x": -0.1270598657572827,
+     "y": -0.16388532668061273,
+     "z": 0.116,
+     "yaw": -1.2939658448118954,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.910751659242015,
+     0.5606639057019276
+    ],
+    "cone": [
+     1.1652344837288835,
+     -0.07491878275274111
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 40",
+   "scene": {
+    "duck": {
+     "x": -0.2244691636189044,
+     "y": -0.26942151824918154,
+     "z": 0.116,
+     "yaw": 2.438932869328454,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.3359383603026652,
+     0.40798093493532006
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 41",
+   "scene": {
+    "duck": {
+     "x": 0.245372196658518,
+     "y": 0.04648121477994077,
+     "z": 0.116,
+     "yaw": 0.0482625171537836,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     -0.02250718769922455,
+     0.755961233171335
+    ],
+    "cone": [
+     -0.26837516790576077,
+     0.924741303210761
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": -0.197,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the goal box (a taped rectangle on the floor), its near edge 0.30 m away, 3 degrees right.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 42",
+   "scene": {
+    "duck": {
+     "x": -0.28876982804418544,
+     "y": 0.2188744278174935,
+     "z": 0.116,
+     "yaw": -1.4498955388422292,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     -0.8426001107776327,
+     -0.03870829431994771
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 43",
+   "scene": {
+    "duck": {
+     "x": 0.22749904146761196,
+     "y": -0.09040584693683754,
+     "z": 0.116,
+     "yaw": -0.6483591760205241,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.5599042383507951,
+     -0.5105090107218795
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the goal box (a taped rectangle on the floor), its near edge 0.32 m away, 37 degrees left.",
+    "right": "Camera, looking right: the orange cone, 0.54 m away, 14 degrees right."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 44",
+   "scene": {
+    "duck": {
+     "x": -0.20732598294967908,
+     "y": 0.21366150285251712,
+     "z": 0.116,
+     "yaw": 1.9008312004259391,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     1.2728686971700731,
+     0.906476335119828
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 45",
+   "scene": {
+    "duck": {
+     "x": -0.20225585921261946,
+     "y": 0.20041619898025248,
+     "z": 0.116,
+     "yaw": -1.0595691687957927,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.8336694565146943,
+     -0.05250103411686924
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 46",
+   "scene": {
+    "duck": {
+     "x": 0.28333603375481414,
+     "y": 0.20918974156160314,
+     "z": 0.116,
+     "yaw": 1.2060481686936182,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.7838106801616287,
+     -0.3019606247130311
+    ],
+    "cone": [
+     1.8163764056792662,
+     0.5420529157370171
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 47",
+   "scene": {
+    "duck": {
+     "x": -0.18166447319718299,
+     "y": -0.29838989384003384,
+     "z": 0.116,
+     "yaw": 1.9975626202554402,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.10567192684801,
+     0.4629982703026072
+    ],
+    "cone": [
+     -0.2657175696998413,
+     -0.12470114802956345
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the orange cone, 0.19 m away, 1 degree left.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 48",
+   "scene": {
+    "duck": {
+     "x": 0.2632500402890529,
+     "y": -0.2184979009149261,
+     "z": 0.116,
+     "yaw": -2.9506799947634414,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.798346273466727,
+     0.04300686158262845
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 49",
+   "scene": {
+    "duck": {
+     "x": -0.23678252449418832,
+     "y": -0.15156927986943192,
+     "z": 0.116,
+     "yaw": -1.1760441405102402,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.3671488017409851,
+     0.7876334174053121
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": -0.1777,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 50",
+   "scene": {
+    "duck": {
+     "x": 0.2229273754020908,
+     "y": -0.0683328824208492,
+     "z": 0.116,
+     "yaw": -1.8125903148533626,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 51",
+   "scene": {
+    "duck": {
+     "x": -0.21491321133680952,
+     "y": 0.29648663210173304,
+     "z": 0.116,
+     "yaw": -0.0900648498870229,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.0472173819425512,
+     -0.06252357048911739
+    ],
+    "cone": [
+     0.6631087674611384,
+     0.2653394833653093
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the ball, 1.31 m away, 11 degrees right; the orange cone, 0.88 m away, 3 degrees left.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 52",
+   "scene": {
+    "duck": {
+     "x": 0.2540281392940455,
+     "y": -0.20005138200468298,
+     "z": 0.116,
+     "yaw": -0.3638937820589274,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     0.5832836291579435,
+     -0.22697727708272786
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": 0.1508,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: the orange cone, 0.33 m away, 16 degrees left; the goal box (a taped rectangle on the floor), its near edge 0.30 m away, 21 degrees left.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 53",
+   "scene": {
+    "duck": {
+     "x": -0.2900027647617514,
+     "y": 0.03752147677285733,
+     "z": 0.116,
+     "yaw": 0.22429008549634633,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.8846117428902585,
+     -0.9264782405645973
+    ],
+    "cone": [
+     -0.07108729135581238,
+     -0.2148088743546297
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "step": {
+     "x": -0.0632,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: the goal box (a taped rectangle on the floor), its near edge 0.84 m away, 13 degrees right.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 54",
+   "scene": {
+    "duck": {
+     "x": 0.24626910045253797,
+     "y": 0.09811524522672582,
+     "z": 0.116,
+     "yaw": 0.8434568033374092,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     1.9665352071700632,
+     -0.061943019748259553
+    ],
+    "step": {
+     "x": 0.077,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 55",
+   "scene": {
+    "duck": {
+     "x": 0.18260477815350123,
+     "y": 0.2782906502767945,
+     "z": 0.116,
+     "yaw": -1.9221575541705003,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.4022726645622834,
+     -0.18211109858779673
+    ],
+    "cone": [
+     -0.5457327140293755,
+     -0.5991624542239302
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: the orange cone, 1.14 m away, 20 degrees right."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 56",
+   "scene": {
+    "duck": {
+     "x": -0.08226145401431975,
+     "y": -0.129695687550324,
+     "z": 0.116,
+     "yaw": 2.4396000642241846,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.9975918423246064,
+     0.7210596300878853
+    ]
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 57",
+   "scene": {
+    "duck": {
+     "x": -0.15020577480314298,
+     "y": -0.15463940482029184,
+     "z": 0.116,
+     "yaw": 3.0457696968971897,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "cone": [
+     -0.3750691867384103,
+     0.2117619390218033
+    ],
+    "step": {
+     "x": 0.0855,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 58",
+   "scene": {
+    "duck": {
+     "x": -0.27668517835947304,
+     "y": 0.024062968693341624,
+     "z": 0.116,
+     "yaw": 0.47893634274817254,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "step": {
+     "x": 0.128,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  },
+  {
+   "name": "random 59",
+   "scene": {
+    "duck": {
+     "x": -0.14744979864969504,
+     "y": 0.15889606700456615,
+     "z": 0.116,
+     "yaw": 2.22499476049797,
+     "upright": true
+    },
+    "stand_height": 0.116,
+    "ball": [
+     0.22159043907695164,
+     -0.5713572657349537
+    ],
+    "cone": [
+     1.2118160060513095,
+     -0.8208756592414996
+    ],
+    "step": {
+     "x": 0.1803,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    }
+   },
+   "captions": {
+    "ahead": "Camera, looking ahead: nothing it recognises.",
+    "left": "Camera, looking left: nothing it recognises.",
+    "right": "Camera, looking right: nothing it recognises."
+   },
+   "on_step": false
+  }
+ ],
+ "balance": {
+  "upright": "Balance: upright.",
+  "fallen": "Balance: fallen over."
+ },
+ "compare": "every caption byte for byte"
+}

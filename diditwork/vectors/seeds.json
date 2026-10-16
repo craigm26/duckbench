@@ -1,0 +1,1943 @@
+{
+ "format": "did-it-work/0 vectors",
+ "spec_version": "0.5.0",
+ "spec_sha256": "fcc6573ed0c48fe1c023d052606c4081d48d606cf88332c6e2ad0f21bc2f5b87",
+ "rule": "Each sampled number u in [0, 1) is the first 8 bytes of SHA-256 over the UTF-8 text '<task id>|<seed>|<name>', read as a big-endian unsigned integer and divided by 2^64. A range [a, b] becomes a + u * (b - a); a sign marked 'either' is + when u < 0.5 and - otherwise.",
+ "uniform": [
+  {
+   "task": "kick-into-box",
+   "seed": 0,
+   "name": "ball_ahead",
+   "u": 0.7816589466081797,
+   "u_hex": "c81accfc4ed54800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 0,
+   "name": "ball_side",
+   "u": 0.3256949470508622,
+   "u_hex": "5360be7a0e4fc800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 0,
+   "name": "ball_side_sign",
+   "u": 0.5143120573391867,
+   "u_hex": "83a9f47a35d52800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 1,
+   "name": "ball_ahead",
+   "u": 0.38182865360826757,
+   "u_hex": "61bf85cbec584000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 1,
+   "name": "ball_side",
+   "u": 0.3580674387912708,
+   "u_hex": "5baa4ec35ef93000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 1,
+   "name": "ball_side_sign",
+   "u": 0.5586223696654953,
+   "u_hex": "8f01e02886fec000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 2,
+   "name": "ball_ahead",
+   "u": 0.28586285627333335,
+   "u_hex": "492e4ee2d5ca1c00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 2,
+   "name": "ball_side",
+   "u": 0.08467589742741607,
+   "u_hex": "15ad51d235cfd600"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 2,
+   "name": "ball_side_sign",
+   "u": 0.8794756207490898,
+   "u_hex": "e1255074bf23c800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 3,
+   "name": "ball_ahead",
+   "u": 0.6508265154112837,
+   "u_hex": "a69c91070fa47800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 3,
+   "name": "ball_side",
+   "u": 0.0580196378819718,
+   "u_hex": "0eda5fff3a94b500"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 3,
+   "name": "ball_side_sign",
+   "u": 0.5858422704352311,
+   "u_hex": "95f9c250223a8000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 4,
+   "name": "ball_ahead",
+   "u": 0.16427923298591854,
+   "u_hex": "2a0e342d1623da00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 4,
+   "name": "ball_side",
+   "u": 0.5699919263617276,
+   "u_hex": "91eafdaab5293800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 4,
+   "name": "ball_side_sign",
+   "u": 0.2471339681644354,
+   "u_hex": "3f442bf6ff387400"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 5,
+   "name": "ball_ahead",
+   "u": 0.06922607980131741,
+   "u_hex": "11b8cce4c6e5d500"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 5,
+   "name": "ball_side",
+   "u": 0.08302132132700264,
+   "u_hex": "1540e2a3f85df500"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 5,
+   "name": "ball_side_sign",
+   "u": 0.6389897796884093,
+   "u_hex": "a394d58e3d6e3800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 6,
+   "name": "ball_ahead",
+   "u": 0.0798331391418424,
+   "u_hex": "146ff1d1c050a600"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 6,
+   "name": "ball_side",
+   "u": 0.8189535154688536,
+   "u_hex": "d1a6f005e2097000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 6,
+   "name": "ball_side_sign",
+   "u": 0.6574103189190964,
+   "u_hex": "a84c0aebcf799800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 7,
+   "name": "ball_ahead",
+   "u": 0.20615466639157515,
+   "u_hex": "34c68d5e11d1ac00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 7,
+   "name": "ball_side",
+   "u": 0.20708924341119658,
+   "u_hex": "3503ccf7cdf1ee00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 7,
+   "name": "ball_side_sign",
+   "u": 0.7422819270861518,
+   "u_hex": "be0630393f337000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 8,
+   "name": "ball_ahead",
+   "u": 0.19289594621053124,
+   "u_hex": "3161a0f481553c00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 8,
+   "name": "ball_side",
+   "u": 0.36637203759750975,
+   "u_hex": "5dca8ecfa672a400"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 8,
+   "name": "ball_side_sign",
+   "u": 0.5284592221327306,
+   "u_hex": "87491a845465b800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 9,
+   "name": "ball_ahead",
+   "u": 0.7319166962303641,
+   "u_hex": "bb5ee481b4ae0800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 9,
+   "name": "ball_side",
+   "u": 0.002737156861910621,
+   "u_hex": "00b361df34b7b450"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 9,
+   "name": "ball_side_sign",
+   "u": 0.3572176541797019,
+   "u_hex": "5b729dbe4172c400"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 10,
+   "name": "ball_ahead",
+   "u": 0.16909017050127237,
+   "u_hex": "2b497e5060c67e00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 10,
+   "name": "ball_side",
+   "u": 0.8495850611454886,
+   "u_hex": "d97e6814ca3fa800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 10,
+   "name": "ball_side_sign",
+   "u": 0.2286501204401974,
+   "u_hex": "3a88d07584614000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 11,
+   "name": "ball_ahead",
+   "u": 0.13487252744905417,
+   "u_hex": "2287018685c5d600"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 11,
+   "name": "ball_side",
+   "u": 0.8061965889679386,
+   "u_hex": "ce62e64fc398d000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 11,
+   "name": "ball_side_sign",
+   "u": 0.30426295233134026,
+   "u_hex": "4de42d45a5c37000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 12,
+   "name": "ball_ahead",
+   "u": 0.6920810715309661,
+   "u_hex": "b12c39a067f88800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 12,
+   "name": "ball_side",
+   "u": 0.9806501371933933,
+   "u_hex": "fb0be32c10440000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 12,
+   "name": "ball_side_sign",
+   "u": 0.47922205449642374,
+   "u_hex": "7aae4beb95859800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 13,
+   "name": "ball_ahead",
+   "u": 0.7930156525052737,
+   "u_hex": "cb0312e4b9eb9800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 13,
+   "name": "ball_side",
+   "u": 0.2967995353422681,
+   "u_hex": "4bfb0de9c3567000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 13,
+   "name": "ball_side_sign",
+   "u": 0.541685052322434,
+   "u_hex": "8aabdf2074f79800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 14,
+   "name": "ball_ahead",
+   "u": 0.06767634447921043,
+   "u_hex": "11533ca640441700"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 14,
+   "name": "ball_side",
+   "u": 0.4553435409964292,
+   "u_hex": "749164f106458c00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 14,
+   "name": "ball_side_sign",
+   "u": 0.9796697457648139,
+   "u_hex": "facba2eef0c54800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 15,
+   "name": "ball_ahead",
+   "u": 0.8145567858573435,
+   "u_hex": "d086cb23fdfe9000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 15,
+   "name": "ball_side",
+   "u": 0.8682236025006689,
+   "u_hex": "de43e6ea5b0da000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 15,
+   "name": "ball_side_sign",
+   "u": 0.7714405960861669,
+   "u_hex": "c57d2182ff306800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 16,
+   "name": "ball_ahead",
+   "u": 0.06309629612120368,
+   "u_hex": "1027143056dc7600"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 16,
+   "name": "ball_side",
+   "u": 0.9286480064435733,
+   "u_hex": "edbbe0312bb5e800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 16,
+   "name": "ball_side_sign",
+   "u": 0.9651849642284998,
+   "u_hex": "f7165c9ff3cc5000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 17,
+   "name": "ball_ahead",
+   "u": 0.9270016238575017,
+   "u_hex": "ed4ffa79ce8e9800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 17,
+   "name": "ball_side",
+   "u": 0.695936608999036,
+   "u_hex": "b228e6cfbd709000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 17,
+   "name": "ball_side_sign",
+   "u": 0.16109092989019966,
+   "u_hex": "293d41538f85de00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 18,
+   "name": "ball_ahead",
+   "u": 0.8277283390896772,
+   "u_hex": "d3e601225cd0e000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 18,
+   "name": "ball_side",
+   "u": 0.17114230867873248,
+   "u_hex": "2bcffb7abcb22000"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 18,
+   "name": "ball_side_sign",
+   "u": 0.5062650065976558,
+   "u_hex": "819a955e72374800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 19,
+   "name": "ball_ahead",
+   "u": 0.404925035026882,
+   "u_hex": "67a92ac6c5a92c00"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 19,
+   "name": "ball_side",
+   "u": 0.21321832034966837,
+   "u_hex": "369579d0cf541800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 19,
+   "name": "ball_side_sign",
+   "u": 0.9571647939736198,
+   "u_hex": "f508c07effd07800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 20,
+   "name": "ball_ahead",
+   "u": 0.44566824862273,
+   "u_hex": "72175078b341c800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 20,
+   "name": "ball_side",
+   "u": 0.7643999647557381,
+   "u_hex": "c3afb751b07fa800"
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 20,
+   "name": "ball_side_sign",
+   "u": 0.3448402144414891,
+   "u_hex": "584772c35f2fc400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 0,
+   "name": "cone_range",
+   "u": 0.8892948677262781,
+   "u_hex": "e3a8d41562900800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 0,
+   "name": "cone_bearing",
+   "u": 0.9414896972080772,
+   "u_hex": "f105780307961800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 0,
+   "name": "cone_bearing_sign",
+   "u": 0.13828396168157164,
+   "u_hex": "236693e4fbd1a000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 1,
+   "name": "cone_range",
+   "u": 0.8026223464341576,
+   "u_hex": "cd78a878f9369800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 1,
+   "name": "cone_bearing",
+   "u": 0.9702240359449967,
+   "u_hex": "f8609a382d48a000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 1,
+   "name": "cone_bearing_sign",
+   "u": 0.6154345463369698,
+   "u_hex": "9d8d1e51588bb800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 2,
+   "name": "cone_range",
+   "u": 0.5459981305336042,
+   "u_hex": "8bc6889251a7f800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 2,
+   "name": "cone_bearing",
+   "u": 0.6208980798992321,
+   "u_hex": "9ef32d3350ff6000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 2,
+   "name": "cone_bearing_sign",
+   "u": 0.13246737521832866,
+   "u_hex": "21e961c45984ca00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 3,
+   "name": "cone_range",
+   "u": 0.9508449067673198,
+   "u_hex": "f36a926222413800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 3,
+   "name": "cone_bearing",
+   "u": 0.39795838520693894,
+   "u_hex": "65e099c9a1fd6800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 3,
+   "name": "cone_bearing_sign",
+   "u": 0.5124177698740762,
+   "u_hex": "832dcf9b7f97e000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 4,
+   "name": "cone_range",
+   "u": 0.2706792535949028,
+   "u_hex": "454b3c4de5530400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 4,
+   "name": "cone_bearing",
+   "u": 0.7460552641030302,
+   "u_hex": "befd7a5054c6c000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 4,
+   "name": "cone_bearing_sign",
+   "u": 0.16659187630193367,
+   "u_hex": "2aa5c3e47eff4400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 5,
+   "name": "cone_range",
+   "u": 0.4849842570419433,
+   "u_hex": "7c27eda311ebcc00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 5,
+   "name": "cone_bearing",
+   "u": 0.03266856625794256,
+   "u_hex": "085cf797af60e780"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 5,
+   "name": "cone_bearing_sign",
+   "u": 0.5700208823726773,
+   "u_hex": "91ece377d3e4f000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 6,
+   "name": "cone_range",
+   "u": 0.10424229756996378,
+   "u_hex": "1aaf9f8aec42d400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 6,
+   "name": "cone_bearing",
+   "u": 0.06059335874089753,
+   "u_hex": "0f830bde259e8e80"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 6,
+   "name": "cone_bearing_sign",
+   "u": 0.19312788178195597,
+   "u_hex": "3170d43033026200"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 7,
+   "name": "cone_range",
+   "u": 0.5835406620681374,
+   "u_hex": "9562ebbb7805c000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 7,
+   "name": "cone_bearing",
+   "u": 0.28899525977023804,
+   "u_hex": "49fb97e56985bc00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 7,
+   "name": "cone_bearing_sign",
+   "u": 0.5891088802269175,
+   "u_hex": "96cfd6ee5b984000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 8,
+   "name": "cone_range",
+   "u": 0.7223596960822667,
+   "u_hex": "b8ec90a69f309000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 8,
+   "name": "cone_bearing",
+   "u": 0.13048906348537725,
+   "u_hex": "2167bb3427c5e000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 8,
+   "name": "cone_bearing_sign",
+   "u": 0.7297226608437017,
+   "u_hex": "bacf1ab3794ae000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 9,
+   "name": "cone_range",
+   "u": 0.12798413651399024,
+   "u_hex": "20c39180bc00d200"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 9,
+   "name": "cone_bearing",
+   "u": 0.001560299822862088,
+   "u_hex": "0066417cb60dbf34"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 9,
+   "name": "cone_bearing_sign",
+   "u": 0.14353925238715723,
+   "u_hex": "24befd0ab1f40e00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 10,
+   "name": "cone_range",
+   "u": 0.39882680085652633,
+   "u_hex": "6619836272743000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 10,
+   "name": "cone_bearing",
+   "u": 0.9004707279267938,
+   "u_hex": "e6853fe7736dc000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 10,
+   "name": "cone_bearing_sign",
+   "u": 0.45161594538115424,
+   "u_hex": "739d1a43c3a14800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 11,
+   "name": "cone_range",
+   "u": 0.20239191711611385,
+   "u_hex": "33cff4e8fd0b2a00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 11,
+   "name": "cone_bearing",
+   "u": 0.6660031123845788,
+   "u_hex": "aa7f2e12b9d9b800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 11,
+   "name": "cone_bearing_sign",
+   "u": 0.48876907875704506,
+   "u_hex": "7d1ff8688ebc0c00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 12,
+   "name": "cone_range",
+   "u": 0.7833801494265573,
+   "u_hex": "c88b99fa1f667000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 12,
+   "name": "cone_bearing",
+   "u": 0.05679252355904191,
+   "u_hex": "0e89f46f57e8b400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 12,
+   "name": "cone_bearing_sign",
+   "u": 0.12493039591978074,
+   "u_hex": "1ffb703cc0755100"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 13,
+   "name": "cone_range",
+   "u": 0.45298429303642884,
+   "u_hex": "73f6c7543171c800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 13,
+   "name": "cone_bearing",
+   "u": 0.9392341360982059,
+   "u_hex": "f071a5f9d41fa000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 13,
+   "name": "cone_bearing_sign",
+   "u": 0.8502515324701746,
+   "u_hex": "d9aa159d5551f800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 14,
+   "name": "cone_range",
+   "u": 0.8469417622847009,
+   "u_hex": "d8d12ce2a1202000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 14,
+   "name": "cone_bearing",
+   "u": 0.7183268290273265,
+   "u_hex": "b7e4445e83021800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 14,
+   "name": "cone_bearing_sign",
+   "u": 0.26660034437125113,
+   "u_hex": "443feb902d46c800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 15,
+   "name": "cone_range",
+   "u": 0.2953073168430986,
+   "u_hex": "4b9942a41c517c00"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 15,
+   "name": "cone_bearing",
+   "u": 0.9485169192755402,
+   "u_hex": "f2d2013bfdb9d800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 15,
+   "name": "cone_bearing_sign",
+   "u": 0.05096949949714941,
+   "u_hex": "0d0c564d6f09ec80"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 16,
+   "name": "cone_range",
+   "u": 0.3935510100834261,
+   "u_hex": "64bfc24d9db78000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 16,
+   "name": "cone_bearing",
+   "u": 0.02089304393539612,
+   "u_hex": "05593f1c6a9a5600"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 16,
+   "name": "cone_bearing_sign",
+   "u": 0.7984067118364301,
+   "u_hex": "cc6461dc3e8e9800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 17,
+   "name": "cone_range",
+   "u": 0.27108323701950093,
+   "u_hex": "4565b6057e194400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 17,
+   "name": "cone_bearing",
+   "u": 0.22128366336811933,
+   "u_hex": "38a60bd14e1e0800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 17,
+   "name": "cone_bearing_sign",
+   "u": 0.3078157434814127,
+   "u_hex": "4ecd03377253e800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 18,
+   "name": "cone_range",
+   "u": 0.9814538463173906,
+   "u_hex": "fb408f2c77734800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 18,
+   "name": "cone_bearing",
+   "u": 0.17139005056796114,
+   "u_hex": "2be037e60c970400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 18,
+   "name": "cone_bearing_sign",
+   "u": 0.28037835879007045,
+   "u_hex": "47c6e049826f0800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 19,
+   "name": "cone_range",
+   "u": 0.3460843811585985,
+   "u_hex": "5898fc6abb8a5000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 19,
+   "name": "cone_bearing",
+   "u": 0.5760848341831533,
+   "u_hex": "937a4bb289c93000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 19,
+   "name": "cone_bearing_sign",
+   "u": 0.7497259997839597,
+   "u_hex": "bfee0b0a08735800"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 20,
+   "name": "cone_range",
+   "u": 0.3955911690465193,
+   "u_hex": "6545767da4263400"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 20,
+   "name": "cone_bearing",
+   "u": 0.5998164663878105,
+   "u_hex": "998d926abce8f000"
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 20,
+   "name": "cone_bearing_sign",
+   "u": 0.7782101393798507,
+   "u_hex": "c738c79a0d53d800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 0,
+   "name": "step_x",
+   "u": 0.5370208493744577,
+   "u_hex": "897a32c9555c3000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 1,
+   "name": "step_x",
+   "u": 0.640230213887331,
+   "u_hex": "a3e620968ea2d000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 2,
+   "name": "step_x",
+   "u": 0.757148518550817,
+   "u_hex": "c1d47c3d63fee800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 3,
+   "name": "step_x",
+   "u": 0.16149077506073084,
+   "u_hex": "2957759d7dd50000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 4,
+   "name": "step_x",
+   "u": 0.37675120028617676,
+   "u_hex": "6072c443f5374c00"
+  },
+  {
+   "task": "climb-step",
+   "seed": 5,
+   "name": "step_x",
+   "u": 0.018478065529131445,
+   "u_hex": "04bafa7f24163fc0"
+  },
+  {
+   "task": "climb-step",
+   "seed": 6,
+   "name": "step_x",
+   "u": 0.38045648501983126,
+   "u_hex": "616598a0b6170c00"
+  },
+  {
+   "task": "climb-step",
+   "seed": 7,
+   "name": "step_x",
+   "u": 0.9154812693842457,
+   "u_hex": "ea5cfb001b1c5800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 8,
+   "name": "step_x",
+   "u": 0.663877780054312,
+   "u_hex": "a9f3e4e9dfd57800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 9,
+   "name": "step_x",
+   "u": 0.6701739301796752,
+   "u_hex": "ab9084c8c0e4e000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 10,
+   "name": "step_x",
+   "u": 0.5280611922262223,
+   "u_hex": "872f04aee5fd2800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 11,
+   "name": "step_x",
+   "u": 0.892673084251587,
+   "u_hex": "e4863926e148e800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 12,
+   "name": "step_x",
+   "u": 0.6023776254194971,
+   "u_hex": "9a356b8904d53800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 13,
+   "name": "step_x",
+   "u": 0.7684103054226011,
+   "u_hex": "c4b689abb30eb800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 14,
+   "name": "step_x",
+   "u": 0.4657025783112776,
+   "u_hex": "773848bf82835000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 15,
+   "name": "step_x",
+   "u": 0.5390767839185134,
+   "u_hex": "8a00efa4f67ee800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 16,
+   "name": "step_x",
+   "u": 0.6983657138060119,
+   "u_hex": "b2c8186d71cbd800"
+  },
+  {
+   "task": "climb-step",
+   "seed": 17,
+   "name": "step_x",
+   "u": 0.05368959343697943,
+   "u_hex": "0dbe99e7f2866000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 18,
+   "name": "step_x",
+   "u": 0.216295014278528,
+   "u_hex": "375f1c2c9d37ae00"
+  },
+  {
+   "task": "climb-step",
+   "seed": 19,
+   "name": "step_x",
+   "u": 0.7000064241694071,
+   "u_hex": "b3339efacc297000"
+  },
+  {
+   "task": "climb-step",
+   "seed": 20,
+   "name": "step_x",
+   "u": 0.7946702958930772,
+   "u_hex": "cb6f8333f6a20800"
+  }
+ ],
+ "worlds": [
+  {
+   "task": "kick-into-box",
+   "seed": 0,
+   "params": {
+    "ball": [
+     0.105633,
+     -0.036285
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 1,
+   "params": {
+    "ball": [
+     0.097637,
+     -0.037903
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 2,
+   "params": {
+    "ball": [
+     0.095717,
+     -0.024234
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 3,
+   "params": {
+    "ball": [
+     0.103017,
+     -0.022901
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 4,
+   "params": {
+    "ball": [
+     0.093286,
+     0.0485
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 5,
+   "params": {
+    "ball": [
+     0.091385,
+     -0.024151
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 6,
+   "params": {
+    "ball": [
+     0.091597,
+     -0.060948
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 7,
+   "params": {
+    "ball": [
+     0.094123,
+     -0.030354
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 8,
+   "params": {
+    "ball": [
+     0.093858,
+     -0.038319
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 9,
+   "params": {
+    "ball": [
+     0.104638,
+     0.020137
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 10,
+   "params": {
+    "ball": [
+     0.093382,
+     0.062479
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 11,
+   "params": {
+    "ball": [
+     0.092697,
+     0.06031
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 12,
+   "params": {
+    "ball": [
+     0.103842,
+     0.069033
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 13,
+   "params": {
+    "ball": [
+     0.10586,
+     -0.03484
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 14,
+   "params": {
+    "ball": [
+     0.091354,
+     -0.042767
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 15,
+   "params": {
+    "ball": [
+     0.106291,
+     -0.063411
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 16,
+   "params": {
+    "ball": [
+     0.091262,
+     -0.066432
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 17,
+   "params": {
+    "ball": [
+     0.10854,
+     0.054797
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 18,
+   "params": {
+    "ball": [
+     0.106555,
+     -0.028557
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 19,
+   "params": {
+    "ball": [
+     0.098099,
+     -0.030661
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "right"
+   }
+  },
+  {
+   "task": "kick-into-box",
+   "seed": 20,
+   "params": {
+    "ball": [
+     0.098913,
+     0.05822
+    ],
+    "box": {
+     "x_min": 0.55,
+     "x_max": 1.4,
+     "half_width": 0.22
+    },
+    "kicking_foot": "left"
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 0,
+   "params": {
+    "cone": [
+     0.702828,
+     0.647634
+    ],
+    "cone_range": 0.955718,
+    "cone_bearing_deg": 42.659588,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 1,
+   "params": {
+    "cone": [
+     0.664677,
+     -0.637602
+    ],
+    "cone_range": 0.921049,
+    "cone_bearing_deg": -43.808961,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 2,
+   "params": {
+    "cone": [
+     0.709923,
+     0.407168
+    ],
+    "cone_range": 0.818399,
+    "cone_bearing_deg": 29.835923,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 3,
+   "params": {
+    "cone": [
+     0.915724,
+     -0.350017
+    ],
+    "cone_range": 0.980338,
+    "cone_bearing_deg": -20.918335,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 4,
+   "params": {
+    "cone": [
+     0.581299,
+     0.404649
+    ],
+    "cone_range": 0.708272,
+    "cone_bearing_deg": 34.842211,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 5,
+   "params": {
+    "cone": [
+     0.789188,
+     -0.087221
+    ],
+    "cone_range": 0.793994,
+    "cone_bearing_deg": -6.306743,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 6,
+   "params": {
+    "cone": [
+     0.636318,
+     0.082911
+    ],
+    "cone_range": 0.641697,
+    "cone_bearing_deg": 7.423734,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 7,
+   "params": {
+    "cone": [
+     0.798848,
+     -0.237537
+    ],
+    "cone_range": 0.833416,
+    "cone_bearing_deg": -16.55981,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 8,
+   "params": {
+    "cone": [
+     0.874841,
+     -0.157717
+    ],
+    "cone_range": 0.888944,
+    "cone_bearing_deg": -10.219563,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 9,
+   "params": {
+    "cone": [
+     0.648653,
+     0.057462
+    ],
+    "cone_range": 0.651194,
+    "cone_bearing_deg": 5.062412,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 10,
+   "params": {
+    "cone": [
+     0.573061,
+     0.498485
+    ],
+    "cone_range": 0.759531,
+    "cone_bearing_deg": 41.018829,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 11,
+   "params": {
+    "cone": [
+     0.579739,
+     0.357218
+    ],
+    "cone_range": 0.680957,
+    "cone_bearing_deg": 31.640124,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 12,
+   "params": {
+    "cone": [
+     0.906006,
+     0.115607
+    ],
+    "cone_range": 0.913352,
+    "cone_bearing_deg": 7.271701,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 13,
+   "params": {
+    "cone": [
+     0.575317,
+     -0.528464
+    ],
+    "cone_range": 0.781194,
+    "cone_bearing_deg": -42.569365,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 14,
+   "params": {
+    "cone": [
+     0.780718,
+     0.521326
+    ],
+    "cone_range": 0.938777,
+    "cone_bearing_deg": 33.733073,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 15,
+   "params": {
+    "cone": [
+     0.525709,
+     0.489215
+    ],
+    "cone_range": 0.718123,
+    "cone_bearing_deg": 42.940677,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 16,
+   "params": {
+    "cone": [
+     0.753495,
+     -0.077012
+    ],
+    "cone_range": 0.75742,
+    "cone_bearing_deg": -5.835722,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 17,
+   "params": {
+    "cone": [
+     0.687832,
+     0.169602
+    ],
+    "cone_range": 0.708433,
+    "cone_bearing_deg": 13.851347,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 18,
+   "params": {
+    "cone": [
+     0.971408,
+     0.203922
+    ],
+    "cone_range": 0.992582,
+    "cone_bearing_deg": 11.855602,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 19,
+   "params": {
+    "cone": [
+     0.651736,
+     -0.347167
+    ],
+    "cone_range": 0.738434,
+    "cone_bearing_deg": -28.043393,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "walk-to-cone",
+   "seed": 20,
+   "params": {
+    "cone": [
+     0.663216,
+     -0.367515
+    ],
+    "cone_range": 0.758236,
+    "cone_bearing_deg": -28.992659,
+    "arrive_m": 0.2
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 0,
+   "params": {
+    "step": {
+     "x": 0.01851,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 1,
+   "params": {
+    "step": {
+     "x": 0.070115,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 2,
+   "params": {
+    "step": {
+     "x": 0.128574,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 3,
+   "params": {
+    "step": {
+     "x": -0.169255,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 4,
+   "params": {
+    "step": {
+     "x": -0.061624,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 5,
+   "params": {
+    "step": {
+     "x": -0.240761,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 6,
+   "params": {
+    "step": {
+     "x": -0.059772,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 7,
+   "params": {
+    "step": {
+     "x": 0.207741,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 8,
+   "params": {
+    "step": {
+     "x": 0.081939,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 9,
+   "params": {
+    "step": {
+     "x": 0.085087,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 10,
+   "params": {
+    "step": {
+     "x": 0.014031,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 11,
+   "params": {
+    "step": {
+     "x": 0.196337,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 12,
+   "params": {
+    "step": {
+     "x": 0.051189,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 13,
+   "params": {
+    "step": {
+     "x": 0.134205,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 14,
+   "params": {
+    "step": {
+     "x": -0.017149,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 15,
+   "params": {
+    "step": {
+     "x": 0.019538,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 16,
+   "params": {
+    "step": {
+     "x": 0.099183,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 17,
+   "params": {
+    "step": {
+     "x": -0.223155,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 18,
+   "params": {
+    "step": {
+     "x": -0.141852,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 19,
+   "params": {
+    "step": {
+     "x": 0.100003,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  },
+  {
+   "task": "climb-step",
+   "seed": 20,
+   "params": {
+    "step": {
+     "x": 0.147335,
+     "y": 1.305,
+     "top": 0.06,
+     "half_depth": 0.17,
+     "half_width": 0.17
+    },
+    "stand_height": 0.116
+   }
+  }
+ ],
+ "compare": "u_hex exactly (it is the first 8 bytes of the digest); u and every world number to 1e-9"
+}
