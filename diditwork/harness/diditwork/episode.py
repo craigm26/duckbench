@@ -132,6 +132,7 @@ def run(spec: dict, world, model, episode: Episode, *, on_step=None) -> dict:
 
         truth = world.truth(spec, episode, params)
         record["model_id"] = getattr(model, "served_model", None)
+        record["prompt_layout"] = getattr(model, "prompt_layout", "system+user")
     except Exception as e:  # the model endpoint or the world stopped answering
         record.update({"steps": steps, "end": "error", "error": f"{type(e).__name__}: {e}",
                        "traceback": traceback.format_exc(limit=6),

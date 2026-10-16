@@ -61,10 +61,18 @@ class OpenAIChat:
         self.name = f"{model} @ {host}"
         self.served_model: str | None = None
         self.last_usage: dict | None = None
+        # Some chat templates (Gemma's among them) have no system role, and some
+        # providers refuse one outright. Then, and only then, the system text goes
+        # at the head of the user message, and every record says so.
+        self.prompt_layout = "system+user"
+
+    def _messages(self, system: str, user: str) -> list[dict]:
+        if self.prompt_layout == "system+user":
+            return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+        return [{"role": "user", "content": system + "\n\n" + user}]
 
     def act(self, system: str, user: str, context: dict | None = None) -> str:
-        body = {"model": self.model, "max_tokens": self.max_tokens,
-                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
+        body = {"model": self.model, "max_tokens": self.max_tokens, "messages": self._messages(system, user)}
         if self.temperature is not None:
             body["temperature"] = self.temperature
         headers = {"content-type": "application/json"}
@@ -84,6 +92,11 @@ class OpenAIChat:
                 return text
             except urllib.error.HTTPError as e:
                 detail = e.read()[:300].decode("utf-8", "replace")
+                if (e.code in (400, 422) and "system" in detail.lower()
+                        and self.prompt_layout == "system+user"):
+                    self.prompt_layout = "system text at the head of the user message"
+                    body["messages"] = self._messages(system, user)
+                    continue
                 if e.code in (408, 425, 429, 500, 502, 503, 504) and attempt < self.retries:
                     time.sleep(delay)
                     delay *= 2

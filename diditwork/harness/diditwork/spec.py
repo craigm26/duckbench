@@ -47,7 +47,13 @@ def load(path: Path | str = SPEC_PATH) -> dict:
 
 
 def spec_digest(path: Path | str = SPEC_PATH) -> str:
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    """SHA-256 of the spec with CRLF read as LF, so a Windows checkout names the same spec.
+
+    Git on Windows (core.autocrlf) writes this file with CRLF; JSON never holds a
+    raw carriage return inside a string, so folding CRLF to LF changes nothing the
+    spec says and only undoes what the checkout did.
+    """
+    return hashlib.sha256(Path(path).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def task_of(spec: dict, task_id: str) -> dict:

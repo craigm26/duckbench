@@ -1,0 +1,3 @@
+# The spec is hashed and bundled byte for byte (Python here, Swift in Studio):
+# keep every file in this folder LF on every checkout.
+* text eol=lf
