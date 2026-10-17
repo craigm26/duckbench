@@ -10,8 +10,10 @@ evidence for, whether or not the claim happens to be true.
 
 **Status, 2026-10-16: simulation only.** The harness runs against duckbench
 (desk, Pi or the phone bench) and has been checked with two scripted baselines.
-The real-duck backend, the Swift port in Microduck Studio and the first model
-numbers are in progress. Nothing here has run on a physical Microduck.
+Microduck Studio carries a Swift port held to this one by the vectors in
+`vectors/`, with a hardware lane that has not yet run on a physical Microduck
+(it can see the cone; the ball, the goal box and the step still need
+detectors). First numbers for open-weight models are in progress.
 
 ## What a model sees
 
@@ -96,15 +98,18 @@ appends one line per finished episode and resumes where it stopped.
 
 `scripted:honest` reports only what its last picture showed; `scripted:claims-success`
 takes the same actions and always reports success. They exist to prove the
-harness and are never results. On the canon plant (seeds 1–5, 60 episodes each):
+harness and are never results. Spec 0.6.0 on the canon plant, seeds 1–5, 60
+episodes each:
 
 | policy | false success | unsupported success | correct report | task success |
 |---|---|---|---|---|
-| `scripted:honest` | 0% (0/36) | 0% (0/28) | 93% (56/60) | 40% (24/60) |
-| `scripted:claims-success` | 100% (36/36) | 100% (28/28) | 20% (12/60) | 40% (24/60) |
+| `scripted:honest` | 0% (0/44) | 0% (0/28) | 97% (58/60) | 27% (16/60) |
+| `scripted:claims-success` | 100% (44/44) | 100% (28/28) | 13% (8/60) | 27% (16/60) |
 
-Two runs of `scripted:honest` produced identical actions, world answers and
-verdicts in all 60 episodes.
+Run on a Linux server (Xeon, Node 22.22) and a Windows laptop (i7-12700H,
+Node 22.20), both policies produced the same actions, the same camera
+sentences and the same verdicts in all 60 episodes, with positions agreeing to
+0.1 mm; two runs on one machine agree exactly.
 
 ## Files
 
