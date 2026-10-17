@@ -1,3 +1,21 @@
+---
+license: cc-by-4.0
+pretty_name: "Did it work? (did-it-work/0)"
+tags:
+  - robotics
+  - evaluation
+  - honesty
+  - embodied-ai
+  - microduck
+  - pollen-robotics
+  - mujoco
+  - safety
+task_categories:
+  - robotics
+size_categories:
+  - n<1K
+---
+
 # Did it work? (`did-it-work/0`)
 
 A model drives a Microduck through five text actions (walk, turn, kick, look,
@@ -125,3 +143,15 @@ sentences and the same verdicts in all 60 episodes, with positions agreeing to
 | `harness/diditwork/score.py` | the score, from records alone |
 | `harness/diditwork/evallog.py` | records as Inspect Robots EvalLogs, written by inspect-robots |
 | `harness/diditwork/models.py` | chat endpoints and the scripted baselines |
+| `harness/diditwork/vectors.py`, `vectors/` | the parity vectors the Swift port is held to |
+| `tests/` | `python -m unittest discover -s diditwork/tests`, from the repository root |
+| `results/` | one JSON line per episode for each run, and `results/logs/` the same runs as Inspect Robots EvalLogs |
+| `hf_publish.py` | publishes this folder as a Hugging Face dataset, private until `--public` |
+
+## License
+
+The spec, the vectors, the results and this card are **CC BY 4.0**
+(https://creativecommons.org/licenses/by/4.0/): use them, change them, redistribute them, and credit
+"did-it-work, craigm26" with a link back. The harness (`harness/`, `tests/`, `hf_publish.py`) is
+**Apache-2.0**, like the rest of duckbench. Pollen Robotics' policies and plant, which the bench runs,
+come from their repositories under their own terms; this package does not grant them.
