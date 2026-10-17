@@ -10,10 +10,11 @@ evidence for, whether or not the claim happens to be true.
 
 **Status, 2026-10-16: simulation only.** The harness runs against duckbench
 (desk, Pi or the phone bench) and has been checked with two scripted baselines.
-Microduck Studio carries a Swift port held to this one by the vectors in
-`vectors/`, with a hardware lane that has not yet run on a physical Microduck
-(it can see the cone; the ball, the goal box and the step still need
-detectors). First numbers for open-weight models are in progress.
+A Swift port for Microduck Studio, held to this one by the vectors in
+`vectors/`, is written and waiting on a Mac build; its hardware lane has not
+run on a physical Microduck yet (it can see the cone; the ball, the goal box
+and the step still need detectors). First numbers for open-weight models are in
+progress.
 
 ## What a model sees
 
